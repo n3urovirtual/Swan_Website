@@ -1851,55 +1851,20 @@ p:last-child {
   box-shadow: 0 0 0 2px rgba(210, 105, 74, 0.28);
 }
 
-/* Logo strip */
-.logo-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-  gap: 1px;
-  background: var(--rule);
+/* Partner logo banner — one combined image, replaceable as a single file */
+.partners-banner {
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.logo-strip__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  min-height: 6.5rem;
-  padding: 1rem 0.75rem;
   background: var(--white);
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.25s var(--ease);
+  padding: clamp(1.1rem, 0.6rem + 1.6vw, 2rem) clamp(1rem, 0.5rem + 1.6vw, 2rem);
+  display: flex;
+  justify-content: center;
 }
 
-.logo-strip__item:hover {
-  background: var(--sky-50);
-}
-
-.logo-strip__item img {
-  max-height: 2.75rem;
-  width: auto;
-}
-
-.logo-strip__abbr {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--blue-700);
-  line-height: 1;
-}
-
-.logo-strip__country {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-400);
+.partners-banner img {
+  width: 100%;
+  max-width: 62rem;
+  height: auto;
 }
 
 /* Consortium map — Natural Earth geometry, partner countries filled */

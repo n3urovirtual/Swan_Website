@@ -53,9 +53,15 @@ Every one of these is marked with a `TODO` comment in the HTML, so
 - **Partner logos** — `assets/img/partners/` holds a **PNG placeholder** for
   each partner (`ittff.png`, `ul.png`, `ktg.png`, `paska.png`, `fcab.png`,
   `fftt.png`, `al.png`). Overwrite any of them with the real logo, keeping the
-  filename, and both the strip and the card update. No HTML edit needed. Use a
-  transparent PNG and trim the empty margin around the artwork — the card sizes
-  the file by height, so built-in padding shrinks the visible logo.
+  filename, and the card updates. No HTML edit needed. Use a transparent PNG
+  and trim the empty margin around the artwork — the card sizes the file by
+  height, so built-in padding shrinks the visible logo.
+- **The combined partner banner** — `assets/img/partners-all.png` is the single
+  image near the top of the Partners page showing all seven logos together.
+  Replace it with your own, keep the filename, and update the `width`/`height`
+  attributes on its `<img>` in `partners.html` to your file's real pixel size.
+  A wide, short image works best (the placeholder is 2800×400); it is capped at
+  62rem and scales down on narrow screens, so avoid very small type in it.
 - **The SWAN logo** — done: `assets/img/swan-logo.png` is the official mark
   (787×289, transparent, trimmed to the artwork).
   `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;
@@ -87,7 +93,8 @@ your file over the existing one and keep the filename** — no code change:
 | `assets/img/swan-logo.png` | Header and footer, all pages |
 | `assets/img/swan-mark.svg` | Browser tab icon |
 | `assets/img/eu-funded.png` | Footer notice + The Project funding block |
-| `assets/img/partners/<abbr>.png` | Partner strip and card |
+| `assets/img/partners/<abbr>.png` | Partner card |
+| `assets/img/partners-all.png` | Combined logo banner, Partners page |
 
 On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
 **Add file → Upload files** and upload yours with the same name. Or upload
