@@ -1296,26 +1296,15 @@ p:last-child {
 }
 
 .pullquote__mark {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: clamp(6rem, 4.5rem + 4vw, 8.5rem);
+  aspect-ratio: 1;
+  height: auto;
   flex: none;
   grid-column: 1;
   grid-row: 2;
-}
-
-.pullquote__mark path:first-child {
-  fill: var(--blue-700);
-}
-
-.pullquote__neck {
-  fill: none;
-  stroke: var(--blue-700);
-  stroke-width: 5.5;
-  stroke-linecap: round;
-}
-
-.pullquote__head {
-  fill: var(--coral-500);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--sky-100);
 }
 
 .pullquote blockquote {
@@ -1830,7 +1819,7 @@ p:last-child {
 .partner__role {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--coral-600);
@@ -1921,8 +1910,11 @@ p:last-child {
 }
 
 .partners-banner img {
-  width: 100%;
-  max-width: 62rem;
+  /* Sized by the file's own pixels, capped by the card. An image narrower
+     than the card is shown at its native size rather than stretched, so it
+     never blurs; a wider one fills the card and is sharp on retina too. */
+  width: auto;
+  max-width: min(100%, 62rem);
   height: auto;
 }
 

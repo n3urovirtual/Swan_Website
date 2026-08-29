@@ -60,14 +60,21 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   image near the top of the Partners page showing all seven logos together.
   Replace it with your own, keep the filename, and update the `width`/`height`
   attributes on its `<img>` in `partners.html` to your file's real pixel size.
-  A wide, short shape works best. **Export it at roughly 2400px wide**: the
-  banner displays up to 992px, and on a high-density screen that is drawn at
-  about 2000 device pixels, so a smaller file is upscaled and looks soft. The
-  file currently in the repo is only 418px wide and is being stretched.
+  A wide, short shape works best. **Export it at roughly 2400px wide.** The
+  banner is never stretched past the file's own pixel width — an image narrower
+  than the card is shown at its native size and stays sharp, rather than being
+  upscaled into a blur — so a small file simply renders small. The file in the
+  repo is 418px wide and therefore fills only part of the card; a 2400px export
+  fills it and stays crisp on high-density screens.
 - **The SWAN logo** — done: `assets/img/swan-logo.png` is the official mark
   (787×289, transparent, trimmed to the artwork).
   `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;
   replace it the same way.
+- **The swan photograph** — `assets/img/swan-photo.png` is a **placeholder**
+  drawing beside the pull quote on The Project page. Replace it with a real
+  swan photograph, keeping the filename; any aspect ratio works, as it is
+  cropped to a square from its centre. Aim for at least 600px on the short
+  side.
 - **The EU emblem** — done: `assets/img/eu-funded.png` is the official artwork.
 
 ## Adding a news entry
@@ -97,6 +104,7 @@ your file over the existing one and keep the filename** — no code change:
 | `assets/img/eu-funded.png` | Footer notice + The Project funding block |
 | `assets/img/partners/<abbr>.png` | Partner card |
 | `assets/img/partners-all.png` | Combined logo banner, Partners page |
+| `assets/img/swan-photo.png` | Pull quote on The Project page |
 
 On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
 **Add file → Upload files** and upload yours with the same name. Or upload
