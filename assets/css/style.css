@@ -1913,9 +1913,11 @@ p:last-child {
   fill: var(--sky-200);
   stroke: var(--sky-50);
   stroke-width: 1;
+  pointer-events: none;
 }
 
 .cmap__country {
+  pointer-events: none;
   fill: var(--blue-700);
   stroke: var(--white);
   stroke-width: 1.2;
@@ -1964,7 +1966,8 @@ p:last-child {
   stroke: var(--white);
   stroke-width: 3.5px;
   stroke-linejoin: round;
-  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .cmap__abbr {
