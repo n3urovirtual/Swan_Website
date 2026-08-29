@@ -48,6 +48,57 @@
   }
 
   /* ------------------------------------------------------------------
+     Language switcher
+     Closed markup by default, so it degrades to nothing without JS.
+     ------------------------------------------------------------------ */
+  function initLangSwitch() {
+    var root = document.querySelector(".lang");
+    if (!root) return;
+
+    var toggle = root.querySelector(".lang__toggle");
+    var menu = root.querySelector(".lang__menu");
+    if (!toggle || !menu) return;
+
+    function close() {
+      toggle.setAttribute("aria-expanded", "false");
+      menu.hidden = true;
+    }
+
+    function open() {
+      toggle.setAttribute("aria-expanded", "true");
+      menu.hidden = false;
+      /* In the mobile panel the list opens in flow inside a scrolling
+         container, so bring it into view rather than leaving it clipped. */
+      if (menu.scrollIntoView) {
+        window.requestAnimationFrame(function () {
+          menu.scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+        });
+      }
+    }
+
+    toggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (toggle.getAttribute("aria-expanded") === "true") close();
+      else open();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!root.contains(event.target)) close();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (toggle.getAttribute("aria-expanded") !== "true") return;
+      close();
+      toggle.focus();
+    });
+
+    menu.addEventListener("click", function (event) {
+      if (event.target.closest("a")) close();
+    });
+  }
+
+  /* ------------------------------------------------------------------
      Header shadow once the page has scrolled
      ------------------------------------------------------------------ */
   function initStickyHeader() {
@@ -260,6 +311,7 @@
 
   function init() {
     initNav();
+    initLangSwitch();
     initStickyHeader();
     initReveal();
     initCounters();

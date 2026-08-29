@@ -129,6 +129,47 @@ the shape.
 The first entry in `news.html` carries a worked example using
 `assets/img/news/news-placeholder.png`; delete it or overwrite the file.
 
+## The language switcher
+
+The header carries a flag dropdown for the seven consortium languages:
+English, Greek, Slovenian, Bulgarian, French, German and Spanish.
+
+**Only English exists.** The other six are listed but marked `soon` and are
+deliberately not clickable — a switcher that silently serves English, or that
+links to pages which are not there, is worse than one that says "not yet".
+
+The flags are inline SVG defined once per page in the sprite just after the
+skip link, so they are crisp at any size and cost no requests.
+
+### Turning a language on
+
+Say the Greek pages exist at `el/index.html`, `el/project.html` and so on. In
+each of the five HTML files, find the switcher in the header and change:
+
+```html
+<span class="lang__item lang__item--soon" aria-disabled="true">
+  <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-el"/></svg>
+  <span lang="el">Ελληνικά</span>
+  <em>soon</em>
+</span>
+```
+
+to:
+
+```html
+<a class="lang__item" href="el/index.html" hreflang="el">
+  <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-el"/></svg>
+  <span lang="el">Ελληνικά</span>
+</a>
+```
+
+Point each page's link at the matching translated page, not always at the home
+page. Inside the translated pages themselves, set `<html lang="el">`, mark
+English as the available option and Greek as current, and the rest as `soon`.
+
+The flag ids are `flag-en`, `flag-el`, `flag-sl`, `flag-bg`, `flag-fr`,
+`flag-de` and `flag-es`.
+
 ## Replacing a logo
 
 Every logo on the site is a real file with a fixed name. **To swap one, upload
