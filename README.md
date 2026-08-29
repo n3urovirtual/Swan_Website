@@ -2,7 +2,7 @@
 
 Static website for **SWAN** (*Spin for Well-being: Active lifestyles through
 therapeutic table tennis for individuals with Neurodegenerative diseases*), an
-Erasmus+ Sport Cooperation Partnership (Project ID 101155590, 2024–2027).
+Erasmus+ Sport Cooperation Partnership (Project ID 101185590, 1 December 2024 – 30 September 2027).
 
 Plain HTML, CSS and a small amount of vanilla JavaScript. No build step, no
 framework, no dependencies to install. Open `index.html` in a browser, or serve
@@ -31,8 +31,10 @@ index.html · project.html · resources.html · news.html · partners.html
 assets/
   css/style.css     all styling, organised in numbered sections
   js/main.js        nav, scroll reveal, stat counters, news accordion
+  js/motion.js      progress bar, parallax, map draw-in, hero depth field
+  js/vendor/        GSAP + ScrollTrigger, Three.js (self-hosted)
   fonts/            self-hosted webfonts (+ their OFL licences)
-  img/              swan mark, EU funding emblem
+  img/              SWAN logo, favicon mark, EU funding emblem
 ```
 
 ## Before publishing — things to fill in
@@ -47,9 +49,15 @@ Every one of these is marked with a `TODO` comment in the HTML, so
 - **News entries** — the five entries in `news.html` are **sample content**
   written from the project's own published material. Replace the dates, titles
   and text with your real updates before the site goes live.
-- **Partners** — three partners are filled in from information already published
-  on the site (University of Ljubljana, ITTF Foundation, KTG R&I); two of those
-  need their country confirmed, and four partner slots are placeholders.
+- **Partner websites** — the "Visit website" link on each of the seven partner
+  cards in `partners.html`.
+- **Partner logos** — each partner currently shows its abbreviation. Drop real
+  logos into `assets/img/partners/` and swap the marked block for the `<img>`
+  tag shown in the comment beside it. This applies twice per partner: the logo
+  strip at the top of the page and the card lower down.
+- **The SWAN logo** — `assets/img/swan-logo.svg` is a rebuilt approximation of
+  the official mark. Replace that one file with the official artwork and the
+  header, footer and favicon all pick it up.
 
 ## Adding a news entry
 
@@ -82,9 +90,10 @@ on-brand illustrated panels, so nothing looks unfinished.
 ## Design notes
 
 **Colours** carry over from the previous site — deep blue `#12409B`, sky
-`#C5DCEA` / `#E4EFF7`, peach `#FCEAE4` — plus a single coral accent `#D2694A`
-used only for the ball motif and the current-page marker. All defined as custom
-properties at the top of `style.css`.
+`#C5DCEA` / `#E4EFF7`, peach `#FCEAE4` — plus the logo's cyan `#22ACE3` and a
+single coral accent `#D2694A` used only for the ball motif, the coordinator pin
+and the current-page marker. All defined as custom properties at the top of
+`style.css`.
 
 **Typefaces** are Bricolage Grotesque (headings), Instrument Sans (body) and
 DM Mono (dates, deliverable codes, labels).
@@ -93,6 +102,27 @@ DM Mono (dates, deliverable codes, labels).
 three ways: a table tennis rally, a neural connection forming, and the curve of a
 swan's neck. It runs animated in the home page hero and appears quietly
 elsewhere as eyebrow ticks and page decoration.
+
+### Motion
+
+Two systems, deliberately kept apart:
+
+- **CSS + IntersectionObserver** (`main.js`) does every scroll reveal. It is the
+  single source of truth for what fades in, and it works with no JavaScript
+  library present.
+- **GSAP + ScrollTrigger** (`motion.js`) does only what CSS cannot: the reading
+  progress bar, the parallax on page-hero ornaments, and the consortium map
+  drawing its own connector lines.
+
+The home page hero also carries a **Three.js** field of drifting, linked nodes
+behind the rally graphic — the network the project is building, behind the sport
+that builds it. It is masked away from the text column, and it never loads at
+all below 900px wide, on `prefers-reduced-motion`, or when the browser reports
+data saver. Everything in `motion.js` is optional: if it fails to load, the site
+still reveals, reads and works exactly as designed.
+
+GSAP is used under its standard "no charge" licence; Three.js is MIT (licence in
+`assets/js/vendor/`). Both are self-hosted for the same reason as the fonts.
 
 ### Fonts are self-hosted on purpose
 
@@ -108,7 +138,7 @@ families are licensed under the SIL Open Font License; the licence files are in
 Built to keep: skip link, visible keyboard focus, landmark elements, `alt` text
 on meaningful images, `aria-current` on the active nav item, colour contrast at
 WCAG AA, and full support for `prefers-reduced-motion` (which stops the rally
-animation and the scroll reveals). Given that the site's own audience includes
+animation, the scroll reveals, and skips GSAP and Three.js entirely). Given that the site's own audience includes
 people living with neurodegenerative diseases, please keep body text at its
 current size and spacing when editing.
 

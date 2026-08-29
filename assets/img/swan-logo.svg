@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 332 112" role="img" aria-label="SWAN">
+  <title>SWAN</title>
+
+  <!-- swan: three wing feathers, body, and the neck that forms the S -->
+  <g fill="#22ACE3">
+    <!-- body, flowing into the longest wing feather -->
+    <path d="M97 66c5 16 1 32-13 41-17 11-43 10-62-2-8-5-15-11-21-19 20 11 45 13 65 4 14-6 24-15 31-24z"/>
+    <!-- middle feather -->
+    <path d="M86 62c-6 13-18 23-35 27-16 4-34 2-48-6 17 4 35 2 49-5 13-6 24-11 34-16z"/>
+    <!-- top feather -->
+    <path d="M77 56c-5 10-15 17-28 20-12 3-25 1-35-4 13 2 26 0 36-5 10-4 19-8 27-11z"/>
+    <!-- neck: down from the head, bending left, then back right into the body -->
+    <path d="M67 16c-21 14-28 40-17 62 8 16 24 27 43 32l4-13c-15-4-28-13-34-25-8-17-4-35 12-46z"/>
+    <!-- head -->
+    <ellipse cx="72" cy="14" rx="8.5" ry="9"/>
+    <!-- beak -->
+    <path d="M79 9l19 7-18 6z"/>
+  </g>
+
+  <!-- WAN -->
+  <g fill="#111111">
+  <path transform="translate(96.00 104) scale(0.0939 -0.0939)" d="M172 0 23 660H180L278 123H289L405 660H588L704 123H716L814 660H963L812 0H611L499 537H490L378 0Z"/>
+  <path transform="translate(188.59 104) scale(0.0939 -0.0939)" d="M18 0 244 660H454L680 0H524L357 546H342L174 0ZM145 130V228H574V130Z"/>
+  <path transform="translate(254.13 104) scale(0.0939 -0.0939)" d="M73 0V660H261L560 193H571L562 660H702V0H532L216 489H205L214 0Z"/>
+  </g>
+
+  <!-- ball, paddle and player above the N -->
+  <circle cx="248" cy="25" r="8.5" fill="#22ACE3"/>
+  <circle cx="244.5" cy="22" r="1.9" fill="#ffffff"/>
+  <g transform="translate(264 27) rotate(40)" fill="#111111">
+    <rect x="-2.3" y="1" width="4.6" height="16" rx="2.3"/>
+    <ellipse cx="0" cy="-5.5" rx="8.5" ry="9.5"/>
+  </g>
+  <circle cx="304" cy="21" r="9" fill="#22ACE3"/>
+  <path d="M276 39c11 6 23 5 33-2 8-6 15-14 21-23 0 15-5 28-16 35-12 7-28 3-38-10z" fill="#22ACE3"/>
+</svg>

@@ -77,6 +77,10 @@
   --peach-100: #fceae4;
   --peach-200: #f9dbd1;
 
+  /* Brand cyan, from the SWAN logo */
+  --cyan-500: #22ace3;
+  --cyan-600: #1791c3;
+
   /* The one accent: the ball */
   --coral-500: #d2694a;
   --coral-600: #b8543a;
@@ -542,6 +546,22 @@ p:last-child {
   width: 2.5rem;
   height: 2.5rem;
   flex: none;
+}
+
+.brand__logo {
+  height: 3.25rem;
+  width: auto;
+  flex: none;
+}
+
+@media (max-width: 520px) {
+  .brand__logo {
+    height: 2.25rem;
+  }
+}
+
+.site-footer .brand__logo {
+  height: 3rem;
 }
 
 .brand__text {
@@ -1820,6 +1840,168 @@ p:last-child {
   border: 1px dashed var(--sky-300);
 }
 
+/* Coordinator gets a marked card */
+.partner--lead {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 1px rgba(44, 103, 206, 0.25);
+}
+
+.partner__badge {
+  position: absolute;
+  top: -0.7rem;
+  left: clamp(1.4rem, 1rem + 1.2vw, 1.9rem);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--blue-700);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.partner {
+  position: relative;
+  scroll-margin-top: 7rem;
+}
+
+.partner.is-flagged {
+  border-color: var(--coral-500);
+  box-shadow: 0 0 0 2px rgba(210, 105, 74, 0.28);
+}
+
+/* Logo strip */
+.logo-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.logo-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 6.5rem;
+  padding: 1rem 0.75rem;
+  background: var(--white);
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.25s var(--ease);
+}
+
+.logo-strip__item:hover {
+  background: var(--sky-50);
+}
+
+.logo-strip__item img {
+  max-height: 2.75rem;
+  width: auto;
+}
+
+.logo-strip__abbr {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--blue-700);
+  line-height: 1;
+}
+
+.logo-strip__country {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-400);
+}
+
+/* Consortium map — pins sit at true relative geographic positions */
+.cmap {
+  position: relative;
+  background: linear-gradient(160deg, var(--sky-100) 0%, var(--white) 100%);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: clamp(1rem, 0.5rem + 2vw, 2rem);
+}
+
+.cmap__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.cmap__link {
+  fill: none;
+  stroke: var(--blue-300);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.cmap__pin {
+  cursor: pointer;
+}
+
+.cmap__dot {
+  fill: var(--white);
+  stroke: var(--blue-700);
+  stroke-width: 3;
+  transition: fill 0.2s var(--ease), r 0.2s var(--ease);
+}
+
+.cmap__pin--lead .cmap__dot {
+  fill: var(--coral-500);
+  stroke: var(--coral-600);
+}
+
+.cmap__pin:hover .cmap__dot,
+.cmap__pin:focus-visible .cmap__dot {
+  fill: var(--cyan-500);
+  stroke: var(--blue-800);
+}
+
+.cmap__halo {
+  fill: var(--cyan-500);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+
+.cmap__pin:hover .cmap__halo,
+.cmap__pin:focus-visible .cmap__halo {
+  opacity: 0.16;
+}
+
+.cmap__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  fill: var(--navy-900);
+  pointer-events: none;
+}
+
+.cmap__abbr {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--blue-700);
+  pointer-events: none;
+}
+
+.cmap__note {
+  margin: 1.25rem 0 0;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
 /* Country strip */
 .countries {
   display: flex;
@@ -2080,6 +2262,50 @@ p:last-child {
   width: 1.1rem;
   height: 1.1rem;
   fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   18b. Reading progress + hero depth layer
+   -------------------------------------------------------------------------- */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--cyan-500), var(--blue-600) 60%, var(--coral-500));
+  z-index: 200;
+  pointer-events: none;
+}
+
+/* Three.js constellation sits behind the hero content.
+   Masked away from the left half so it never crosses the running text. */
+.hero__depth {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease);
+  -webkit-mask-image: linear-gradient(95deg, transparent 30%, rgba(0, 0, 0, 0.45) 52%, #000 70%);
+  mask-image: linear-gradient(95deg, transparent 30%, rgba(0, 0, 0, 0.45) 52%, #000 70%);
+}
+
+@media (max-width: 900px) {
+  .hero__depth {
+    display: none;
+  }
+}
+
+.hero__depth.is-ready {
+  opacity: 1;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* --------------------------------------------------------------------------

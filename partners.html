@@ -12,23 +12,21 @@
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div class="topbar">
   <div class="container topbar__inner">
-    <span>Erasmus+ Sport<span class="topbar__long"> &middot; Cooperation Partnership</span> &middot; 2024&ndash;2027</span>
-    <span class="topbar__id">Project ID 101155590</span>
+    <span>Erasmus+ Sport<span class="topbar__long"> &middot; Cooperation Partnership</span> &middot; Dec 2024 &ndash; Sep 2027</span>
+    <span class="topbar__id">Project ID 101185590</span>
   </div>
 </div>
 
 <header class="site-header">
   <nav class="container nav" aria-label="Main">
     <a class="brand" href="index.html">
-      <img class="brand__mark" src="assets/img/swan-mark.svg" alt="" width="40" height="40">
-      <span class="brand__text">
-        <span class="brand__name">SWAN</span>
-        <span class="brand__tag">Erasmus+ Sport Project</span>
-      </span>
+      <img class="brand__logo" src="assets/img/swan-logo.svg" alt="SWAN" width="178" height="60">
+      <span class="visually-hidden">SWAN — Erasmus+ Sport Project</span>
     </a>
 
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu">
@@ -63,52 +61,151 @@
   <section class="page-hero">
     <div class="page-hero__decor" aria-hidden="true">
       <svg viewBox="0 0 400 400">
-        <circle cx="200" cy="200" r="14"/>
-        <circle cx="200" cy="70" r="14"/>
-        <circle cx="313" cy="135" r="14"/>
-        <circle cx="313" cy="265" r="14"/>
-        <circle cx="200" cy="330" r="14"/>
-        <circle cx="87" cy="265" r="14"/>
+        <circle cx="200" cy="200" r="14"/><circle cx="200" cy="70" r="14"/>
+        <circle cx="313" cy="135" r="14"/><circle cx="313" cy="265" r="14"/>
+        <circle cx="200" cy="330" r="14"/><circle cx="87" cy="265" r="14"/>
         <circle cx="87" cy="135" r="14"/>
         <path d="M200 70 200 200M313 135 200 200M313 265 200 200M200 330 200 200M87 265 200 200M87 135 200 200" stroke-dasharray="3 10" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="container page-hero__inner reveal">
       <p class="eyebrow">Partners</p>
-      <h1>Seven organisations, one consortium</h1>
+      <h1>Meet the partners driving SWAN</h1>
       <p>
-        SWAN brings together researchers, sport federations, care organisations and
-        technology partners from across the European Union — each contributing a
-        different part of what it takes to put adapted table tennis into practice.
+        From sports clubs and federations to care organisations and universities &mdash;
+        seven partners across seven countries, each contributing a different part of
+        what it takes to put adapted table tennis into practice.
       </p>
     </div>
   </section>
 
-  <!-- ================= COUNTRIES ================= -->
+  <!-- ================= LOGO STRIP ================= -->
   <section class="section section--tight">
     <div class="container reveal">
-      <p class="eyebrow">Where SWAN works</p>
-      <ul class="countries">
-        <li>Slovenia</li>
-        <li>Greece</li>
-        <li>Bulgaria</li>
-        <li>Spain</li>
-        <!-- TODO: add the remaining partner countries -->
-      </ul>
-      <p style="margin-top:1.25rem;color:var(--text-soft);max-width:46rem">
-        Pilot interventions run in <strong>Greece, Bulgaria and Spain</strong>.
-        Research and coordination are shared across the whole consortium.
-      </p>
+      <div class="logo-strip">
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/ittff.svg" alt="International Table Tennis Federation Foundation"> -->
+          <span class="logo-strip__abbr">ITTFF</span>
+          <span class="logo-strip__country">Germany</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/ul.svg" alt="University of Ljubljana &mdash; Faculty of Sport"> -->
+          <span class="logo-strip__abbr">UL</span>
+          <span class="logo-strip__country">Slovenia</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/ktg.svg" alt="KTG Research &amp; Innovation"> -->
+          <span class="logo-strip__abbr">KTG</span>
+          <span class="logo-strip__country">Cyprus</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/paska.svg" alt="Panhellenic Athletic Club for Physically Disabled People"> -->
+          <span class="logo-strip__abbr">PASKA</span>
+          <span class="logo-strip__country">Greece</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/fcab.svg" alt="Foundation Compassion Alzheimer Bulgaria"> -->
+          <span class="logo-strip__abbr">FCAB</span>
+          <span class="logo-strip__country">Bulgaria</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/fftt.svg" alt="French Table Tennis Federation"> -->
+          <span class="logo-strip__abbr">FFTT</span>
+          <span class="logo-strip__country">France</span>
+        </div>
+        <div class="logo-strip__item">
+          <!-- Replace with: <img src="assets/img/partners/al.svg" alt="Alzheimer Le&oacute;n"> -->
+          <span class="logo-strip__abbr">AL</span>
+          <span class="logo-strip__country">Spain</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= PARTNER GRID =================
-       To complete a partner card: replace the name, role, country and
-       description, point the link at their website, and swap the
-       .partner__logo-fallback initials block for:
-         <img src="assets/img/partners/name.svg" alt="Organisation name">
+  <!-- ================= CONSORTIUM MAP =================
+       Pins sit at each partner's true relative geographic position.
+       Clicking a pin jumps to that partner's card below.
   ============================================================== -->
   <section class="section section--sky">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Where SWAN works</p>
+        <h2>Seven partners, seven countries</h2>
+        <p>
+          Pilot interventions run in Greece, Bulgaria and Spain. Research and
+          coordination are shared across the whole consortium.
+        </p>
+      </div>
+
+      <div class="cmap reveal">
+        <svg class="cmap__svg" viewBox="-30 30 860 450" role="list"
+             aria-label="Map of the SWAN consortium">
+        <path class="cmap__link" d="M304 70 Q 356 24 409 167"/>
+        <path class="cmap__link" d="M304 70 Q 528 24 753 427"/>
+        <path class="cmap__link" d="M304 70 Q 440 24 577 360"/>
+        <path class="cmap__link" d="M304 70 Q 436 24 569 247"/>
+        <path class="cmap__link" d="M304 70 Q 246 24 188 99"/>
+        <path class="cmap__link" d="M304 70 Q 174 24 44 250"/>
+        <a class="cmap__pin cmap__pin--lead" href="#p-ittff" role="listitem"
+           aria-label="International Table Tennis Federation Foundation, Germany">
+          <circle class="cmap__halo" cx="304" cy="70" r="30"/>
+          <circle class="cmap__dot" cx="304" cy="70" r="9"/>
+          <text class="cmap__abbr" x="304" y="50" text-anchor="middle">ITTFF</text>
+          <text class="cmap__label" x="304" y="100" text-anchor="middle">Germany</text>
+        </a>
+        <a class="cmap__pin" href="#p-ul" role="listitem"
+           aria-label="University of Ljubljana &mdash; Faculty of Sport, Slovenia">
+          <circle class="cmap__halo" cx="409" cy="167" r="30"/>
+          <circle class="cmap__dot" cx="409" cy="167" r="9"/>
+          <text class="cmap__abbr" x="409" y="147" text-anchor="middle">UL</text>
+          <text class="cmap__label" x="409" y="197" text-anchor="middle">Slovenia</text>
+        </a>
+        <a class="cmap__pin" href="#p-ktg" role="listitem"
+           aria-label="KTG Research &amp; Innovation, Cyprus">
+          <circle class="cmap__halo" cx="753" cy="427" r="30"/>
+          <circle class="cmap__dot" cx="753" cy="427" r="9"/>
+          <text class="cmap__abbr" x="735" y="407" text-anchor="end">KTG</text>
+          <text class="cmap__label" x="735" y="457" text-anchor="end">Cyprus</text>
+        </a>
+        <a class="cmap__pin" href="#p-paska" role="listitem"
+           aria-label="Panhellenic Athletic Club for Physically Disabled People, Greece">
+          <circle class="cmap__halo" cx="577" cy="360" r="30"/>
+          <circle class="cmap__dot" cx="577" cy="360" r="9"/>
+          <text class="cmap__abbr" x="577" y="340" text-anchor="middle">PASKA</text>
+          <text class="cmap__label" x="577" y="390" text-anchor="middle">Greece</text>
+        </a>
+        <a class="cmap__pin" href="#p-fcab" role="listitem"
+           aria-label="Foundation Compassion Alzheimer Bulgaria, Bulgaria">
+          <circle class="cmap__halo" cx="569" cy="247" r="30"/>
+          <circle class="cmap__dot" cx="569" cy="247" r="9"/>
+          <text class="cmap__abbr" x="569" y="227" text-anchor="middle">FCAB</text>
+          <text class="cmap__label" x="569" y="277" text-anchor="middle">Bulgaria</text>
+        </a>
+        <a class="cmap__pin" href="#p-fftt" role="listitem"
+           aria-label="French Table Tennis Federation, France">
+          <circle class="cmap__halo" cx="188" cy="99" r="30"/>
+          <circle class="cmap__dot" cx="188" cy="99" r="9"/>
+          <text class="cmap__abbr" x="188" y="79" text-anchor="middle">FFTT</text>
+          <text class="cmap__label" x="188" y="129" text-anchor="middle">France</text>
+        </a>
+        <a class="cmap__pin" href="#p-al" role="listitem"
+           aria-label="Alzheimer Le&oacute;n, Spain">
+          <circle class="cmap__halo" cx="44" cy="250" r="30"/>
+          <circle class="cmap__dot" cx="44" cy="250" r="9"/>
+          <text class="cmap__abbr" x="44" y="230" text-anchor="middle">AL</text>
+          <text class="cmap__label" x="44" y="280" text-anchor="middle">Spain</text>
+        </a>
+        </svg>
+        <p class="cmap__note">
+          Select a partner to read more about them. Lines connect the coordinator to
+          each partner organisation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARTNER CARDS ================= -->
+  <section class="section">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">The consortium</p>
@@ -116,93 +213,91 @@
       </div>
 
       <div class="grid grid--3 reveal-group">
-
-        <article class="partner">
+        <article class="partner partner--lead" id="p-ittff">
+          <span class="partner__badge">Coordinator</span>
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">UL</span>
+            <!-- Replace with: <img src="assets/img/partners/ittff.svg" alt="International Table Tennis Federation Foundation"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">ITTFF</span>
           </div>
-          <span class="partner__role">Research lead</span>
-          <h3 class="partner__name">University of Ljubljana — Faculty of Sport</h3>
-          <span class="partner__country">Slovenia</span>
-          <p>
-            Leads Deliverable 2.1 Research Insights and the Literature Review, setting
-            the evidence base the curriculums are built on.
-          </p>
+          <span class="partner__role">Coordinator</span>
+          <h3 class="partner__name">International Table Tennis Federation Foundation</h3>
+          <span class="partner__country">Germany</span>
+          <p>The humanitarian arm of the International Table Tennis Federation. ITTF Foundation harnesses the inclusive and health-enhancing qualities of table tennis to drive social development and foster peace worldwide, through programmes such as Table Tennis for All (TT4ALL) and Table Tennis for Health (TT4HEALTH). In SWAN it coordinates the consortium and leads the Best Practices Report.</p>
           <!-- TODO: replace # with the partner's website -->
           <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner">
+        <article class="partner" id="p-ul">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">IF</span>
+            <!-- Replace with: <img src="assets/img/partners/ul.svg" alt="University of Ljubljana &mdash; Faculty of Sport"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">UL</span>
           </div>
-          <span class="partner__role">Sport &amp; development</span>
-          <h3 class="partner__name">ITTF Foundation</h3>
-          <!-- TODO: confirm country -->
-          <span class="partner__country">Country to confirm</span>
-          <p>
-            Leads the Best Practices Report and connects SWAN to the global table
-            tennis for health community, including the World Table Tennis for Health
-            Festival.
-          </p>
+          <span class="partner__role">Research lead</span>
+          <h3 class="partner__name">University of Ljubljana &mdash; Faculty of Sport</h3>
+          <span class="partner__country">Slovenia</span>
+          <p>Slovenia&rsquo;s foremost institution for education, research and professional development in kinesiology and sport. Its research spans the bio-psycho-social aspects of kinesiology as well as high-performance training. In SWAN it leads Deliverable 2.1 Research Insights and the Literature Review.</p>
+          <!-- TODO: replace # with the partner's website -->
           <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner">
+        <article class="partner" id="p-ktg">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">KT</span>
+            <!-- Replace with: <img src="assets/img/partners/ktg.svg" alt="KTG Research &amp; Innovation"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">KTG</span>
           </div>
           <span class="partner__role">Research &amp; innovation</span>
-          <h3 class="partner__name">KTG R&amp;I</h3>
-          <!-- TODO: confirm country -->
-          <span class="partner__country">Country to confirm</span>
-          <p>
-            Leads the Needs Assessment Report, mapping what practitioners and care
-            settings across Europe need in order to run these programmes.
-          </p>
+          <h3 class="partner__name">KTG Research &amp; Innovation</h3>
+          <span class="partner__country">Cyprus</span>
+          <p>A research and innovation organisation working across European projects. In SWAN it leads the Needs Assessment Report, mapping what practitioners and care settings across Europe need in order to run table tennis programmes for people with NDDs.</p>
+          <!-- TODO: replace # with the partner's website -->
           <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner partner--placeholder">
+        <article class="partner" id="p-paska">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">04</span>
+            <!-- Replace with: <img src="assets/img/partners/paska.svg" alt="Panhellenic Athletic Club for Physically Disabled People"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">PASKA</span>
           </div>
-          <span class="partner__role">Role to confirm</span>
-          <h3 class="partner__name">Partner organisation</h3>
-          <span class="partner__country">Country</span>
-          <p>Add this partner's name, country and contribution to the project.</p>
+          <span class="partner__role">Pilot delivery</span>
+          <h3 class="partner__name">Panhellenic Athletic Club for Physically Disabled People</h3>
+          <span class="partner__country">Greece</span>
+          <p>Founded in 1987 and based at the National Rehabilitation Center in Athens, PASKA was the first purely athletic club in Greece for people with mobility impairments and helped establish the Panhellenic Championship for people with disabilities. It hosts over 50 competitive athletes and runs mass-participation programmes promoting physical fitness, autonomy and social integration.</p>
+          <!-- TODO: replace # with the partner's website -->
+          <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner partner--placeholder">
+        <article class="partner" id="p-fcab">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">05</span>
+            <!-- Replace with: <img src="assets/img/partners/fcab.svg" alt="Foundation Compassion Alzheimer Bulgaria"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">FCAB</span>
           </div>
-          <span class="partner__role">Role to confirm</span>
-          <h3 class="partner__name">Partner organisation</h3>
-          <span class="partner__country">Country</span>
-          <p>Add this partner's name, country and contribution to the project.</p>
+          <span class="partner__role">Pilot delivery</span>
+          <h3 class="partner__name">Foundation Compassion Alzheimer Bulgaria</h3>
+          <span class="partner__country">Bulgaria</span>
+          <p>A Bulgarian foundation supporting people living with Alzheimer&rsquo;s disease and the families and carers around them. In SWAN it brings care expertise to the adapted curriculum and hosts one of the pilot interventions.</p>
+          <!-- TODO: replace # with the partner's website -->
+          <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner partner--placeholder">
+        <article class="partner" id="p-fftt">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">06</span>
+            <!-- Replace with: <img src="assets/img/partners/fftt.svg" alt="French Table Tennis Federation"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">FFTT</span>
           </div>
-          <span class="partner__role">Role to confirm</span>
-          <h3 class="partner__name">Partner organisation</h3>
-          <span class="partner__country">Country</span>
-          <p>Add this partner's name, country and contribution to the project.</p>
+          <span class="partner__role">Sport federation</span>
+          <h3 class="partner__name">French Table Tennis Federation</h3>
+          <span class="partner__country">France</span>
+          <p>The national governing body for table tennis in France, responsible for the sport&rsquo;s clubs, competitions and coach education across the country. In SWAN it contributes federation-scale expertise in taking table tennis programmes to clubs.</p>
+          <!-- TODO: replace # with the partner's website -->
+          <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
-        <article class="partner partner--placeholder">
+        <article class="partner" id="p-al">
           <div class="partner__logo">
-            <span class="partner__logo-fallback" aria-hidden="true">07</span>
+            <!-- Replace with: <img src="assets/img/partners/al.svg" alt="Alzheimer Le&oacute;n"> -->
+            <span class="partner__logo-fallback" aria-hidden="true">AL</span>
           </div>
-          <span class="partner__role">Role to confirm</span>
-          <h3 class="partner__name">Partner organisation</h3>
-          <span class="partner__country">Country</span>
-          <p>Add this partner's name, country and contribution to the project.</p>
+          <span class="partner__role">Pilot delivery</span>
+          <h3 class="partner__name">Alzheimer Le&oacute;n</h3>
+          <span class="partner__country">Spain</span>
+          <p>A Spanish association in Le&oacute;n supporting people with Alzheimer&rsquo;s disease and their families through therapy, day care and family support. In SWAN it brings that experience to the adapted curriculum and hosts one of the pilot interventions.</p>
+          <!-- TODO: replace # with the partner's website -->
+          <span class="partner__link"><a class="link-arrow" href="#">Visit website</a></span>
         </article>
-
       </div>
     </div>
   </section>
@@ -234,11 +329,8 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a class="brand" href="index.html">
-          <img class="brand__mark" src="assets/img/swan-mark.svg" alt="" width="40" height="40">
-          <span class="brand__text">
-            <span class="brand__name">SWAN</span>
-            <span class="brand__tag">Erasmus+ Sport Project</span>
-          </span>
+          <img class="brand__logo" src="assets/img/swan-logo.svg" alt="SWAN" width="178" height="60">
+          <span class="visually-hidden">SWAN — Erasmus+ Sport Project</span>
         </a>
         <p class="footer__tagline">
           Spin for Well-being: active lifestyles through therapeutic table tennis for
@@ -260,7 +352,7 @@
       <div>
         <p class="footer__heading">Project</p>
         <ul class="footer__list">
-          <li><a href="https://erasmus-plus.ec.europa.eu/projects/search/details/101155590" target="_blank" rel="noopener">EU project profile</a></li>
+          <li><a href="https://erasmus-plus.ec.europa.eu/projects/search/details/101185590" target="_blank" rel="noopener">EU project profile</a></li>
           <li><a href="resources.html">Deliverables</a></li>
           <li><a href="#">Contact the consortium</a></li>
         </ul>
@@ -276,7 +368,7 @@
           European Union or the European Education and Culture Executive Agency
           (EACEA). Neither the European Union nor EACEA can be held responsible for them.
         </p>
-        <p class="footer__id">Project ID 101155590 &middot; SWAN &middot; ERASMUS-SPORT-2024-SCP</p>
+        <p class="footer__id">Project ID 101185590 &middot; SWAN &middot; ERASMUS-SPORT-2024-SCP</p>
       </div>
     </div>
 
@@ -294,6 +386,9 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/vendor/gsap.min.js" defer></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>
