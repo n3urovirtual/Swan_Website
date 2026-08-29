@@ -1062,6 +1062,29 @@ a.lang__item:hover {
   overflow: visible;
 }
 
+/* The 3D stage takes over from the SVG only once it has actually rendered,
+   so a device without WebGL, or a visitor who has asked for less motion,
+   keeps the drawn scene rather than an empty box. */
+.rally__stage {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.rally__stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.rally.is-3d .rally__stage {
+  display: block;
+}
+
+.rally.is-3d .rally__svg {
+  display: none;
+}
+
 .rally__ring {
   fill: none;
   stroke: var(--sky-300);
@@ -1845,6 +1868,30 @@ a.lang__item:hover {
   gap: 1.25rem;
 }
 
+/* A quiet note that the news feed is not translated */
+.news-lang-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 1.25rem 0 0;
+  max-width: 34rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.news-lang-note svg {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.12rem;
+  fill: none;
+  stroke: var(--blue-600);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .news-item {
   background: var(--white);
   border: 1px solid var(--rule);
@@ -2069,14 +2116,18 @@ a.lang__item:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* A fixed box rather than a fixed height: the real partner logos run from
+   0.7:1 to 4.3:1, and sizing them by height alone would make the widest four
+   times the visual weight of the tallest. */
 .partner__logo {
-  height: 3.5rem;
+  height: 3.75rem;
   display: flex;
   align-items: center;
 }
 
 .partner__logo img {
   max-height: 100%;
+  max-width: 12rem;
   width: auto;
   object-fit: contain;
 }

@@ -210,6 +210,10 @@
 
       <div class="hero__art reveal">
         <div class="rally">
+          <!-- The 3D rally renders here when WebGL is available and motion is
+               allowed; otherwise the SVG below stays as the visible artwork. -->
+          <div class="rally__stage" role="img"
+               aria-label="Two people rallying across a table tennis table"></div>
           <svg class="rally__svg" viewBox="0 0 400 400" role="img" aria-labelledby="rally-title">
             <title id="rally-title">Two people rallying across a table tennis table</title>
 
