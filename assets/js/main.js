@@ -241,17 +241,6 @@
     });
   }
 
-  /* ------------------------------------------------------------------
-     Current year in the footer
-     ------------------------------------------------------------------ */
-  function initYear() {
-    var nodes = document.querySelectorAll("[data-current-year]");
-    var year = new Date().getFullYear();
-    nodes.forEach(function (el) {
-      el.textContent = year;
-    });
-  }
-
   function init() {
     initNav();
     initStickyHeader();
@@ -259,7 +248,6 @@
     initCounters();
     initNewsAccordion();
     initMap();
-    initYear();
   }
 
   if (document.readyState === "loading") {

@@ -2299,6 +2299,7 @@ p:last-child {
 .footer__social {
   display: flex;
   gap: 0.5rem;
+  margin-top: 1.25rem;
 }
 
 .footer__social a {
