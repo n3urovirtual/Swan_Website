@@ -337,7 +337,7 @@ p:last-child {
 }
 
 .section-head--wide > p:not(.eyebrow) {
-  max-width: 46rem;
+  max-width: 50rem;
 }
 
 .section-head p {
