@@ -92,6 +92,25 @@ and edit five things:
 The entry works without JavaScript; the script only adds the open/close
 animation.
 
+### The info callout
+
+The warm box under the News intro is a reusable component. To add another
+anywhere on the site:
+
+```html
+<aside class="note">
+  <span class="note__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/><circle cx="12" cy="6.6" r="1.5" fill="#fff"/><rect x="10.6" y="10" width="2.8" height="8" rx="1.4" fill="#fff"/></svg>
+  </span>
+  <p class="note__title">The short bold line</p>
+  <p class="note__body">The supporting sentence.</p>
+</aside>
+```
+
+It is deliberately warm — peach with a coral mark — so that on the site's
+cool blue sections an aside reads as an aside rather than as more of the
+page.
+
 ### Images inside an entry
 
 The expanded part of an entry is ordinary HTML, so it takes images as well as
