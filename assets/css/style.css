@@ -2240,7 +2240,10 @@ a.lang__item:hover {
   margin: 1.25rem 0 0;
   font-size: 0.92rem;
   color: var(--text-soft);
-  max-width: 46rem;
+  /* Runs the width of the map rather than a 46rem measure: it is one short
+     sentence pair, not a paragraph, and the map above it is this wide. */
+  max-width: none;
+  text-wrap: balance;
 }
 
 /* Country strip */
