@@ -1904,7 +1904,7 @@ p:last-child {
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--white);
-  padding: clamp(1.1rem, 0.6rem + 1.6vw, 2rem) clamp(1rem, 0.5rem + 1.6vw, 2rem);
+  padding: clamp(1rem, 0.6rem + 1.2vw, 1.6rem) clamp(0.9rem, 0.5rem + 1vw, 1.4rem);
   display: flex;
   justify-content: center;
 }
@@ -1914,7 +1914,7 @@ p:last-child {
      than the card is shown at its native size rather than stretched, so it
      never blurs; a wider one fills the card and is sharp on retina too. */
   width: auto;
-  max-width: min(100%, 62rem);
+  max-width: 100%;
   height: auto;
 }
 

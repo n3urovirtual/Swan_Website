@@ -60,12 +60,12 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   image near the top of the Partners page showing all seven logos together.
   Replace it with your own, keep the filename, and update the `width`/`height`
   attributes on its `<img>` in `partners.html` to your file's real pixel size.
-  A wide, short shape works best. **Export it at roughly 2400px wide.** The
+  A wide, short shape works best. **Export it at 2400px wide or more.** The
   banner is never stretched past the file's own pixel width — an image narrower
   than the card is shown at its native size and stays sharp, rather than being
   upscaled into a blur — so a small file simply renders small. The file in the
-  repo is 418px wide and therefore fills only part of the card; a 2400px export
-  fills it and stays crisp on high-density screens.
+  repo is 2678×283, which fills the card and stays crisp on high-density
+  screens.
 - **The SWAN logo** — done: `assets/img/swan-logo.png` is the official mark
   (787×289, transparent, trimmed to the artwork).
   `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;
