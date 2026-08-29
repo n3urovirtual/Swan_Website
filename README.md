@@ -100,16 +100,16 @@ anywhere on the site:
 ```html
 <aside class="note">
   <span class="note__icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/><circle cx="12" cy="6.6" r="1.5" fill="#fff"/><rect x="10.6" y="10" width="2.8" height="8" rx="1.4" fill="#fff"/></svg>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/><circle class="note__glyph" cx="12" cy="6.6" r="1.5"/><rect class="note__glyph" x="10.6" y="10" width="2.8" height="8" rx="1.4"/></svg>
   </span>
   <p class="note__title">The short bold line</p>
   <p class="note__body">The supporting sentence.</p>
 </aside>
 ```
 
-It is deliberately warm — peach with a coral mark — so that on the site's
-cool blue sections an aside reads as an aside rather than as more of the
-page.
+It is navy with the brand cyan, the same pairing as the grant code on The
+Project page, so that against the site's pale sections an aside reads as an
+aside rather than as more of the page.
 
 ### Images inside an entry
 

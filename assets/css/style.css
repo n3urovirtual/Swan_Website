@@ -2001,8 +2001,9 @@ a.lang__item:hover {
   gap: 1.25rem;
 }
 
-/* Info callout. Warm panel against the cool page heroes and sections, so an
-   aside reads as an aside. Reusable: title plus one short paragraph. */
+/* Info callout. Navy panel with the brand cyan, the same pairing as the
+   grant code, so an aside reads as an aside against the pale sections.
+   Reusable: title plus one short paragraph. */
 .note {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -2012,8 +2013,8 @@ a.lang__item:hover {
   max-width: 46rem;
   margin-top: 1.75rem;
   padding: clamp(1rem, 0.8rem + 0.7vw, 1.35rem) clamp(1.1rem, 0.85rem + 0.9vw, 1.5rem);
-  background: var(--peach-100);
-  border: 1px solid var(--peach-200);
+  background: var(--navy-950);
+  border: 1px solid rgba(34, 172, 227, 0.32);
   border-radius: var(--radius-lg);
 }
 
@@ -2024,7 +2025,7 @@ a.lang__item:hover {
   width: 1.1rem;
   height: 1.1rem;
   margin-top: 0.16rem;
-  color: var(--coral-600);
+  color: var(--cyan-500);
 }
 
 .note__icon svg {
@@ -2034,6 +2035,11 @@ a.lang__item:hover {
   display: block;
 }
 
+/* The mark punched out of the disc, so it stays legible on the cyan. */
+.note__glyph {
+  fill: var(--navy-950);
+}
+
 .note .note__title {
   grid-column: 2;
   grid-row: 1;
@@ -2041,7 +2047,7 @@ a.lang__item:hover {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.35;
-  color: var(--navy-900);
+  color: var(--cyan-500);
   margin: 0;
 }
 
@@ -2050,7 +2056,7 @@ a.lang__item:hover {
   grid-row: 2;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--text-soft);
+  color: #b7c9e2;
   margin: 0;
 }
 
