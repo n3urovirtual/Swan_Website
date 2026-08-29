@@ -210,15 +210,12 @@
           var mesh = new THREE.Mesh(geo, m || body);
           mesh.position.set(x, y, z);
           if (rz) mesh.rotation.z = rz;
-          mesh.castShadow = true;
           g.add(mesh);
           return mesh;
         }
 
-        // legs, slightly apart in a ready stance
-        part(new THREE.CapsuleGeometry(0.066, 0.66, 6, 14), -0.16, 0.42, 0.09, body, 0.16);
-        part(new THREE.CapsuleGeometry(0.066, 0.66, 6, 14), 0.16, 0.42, -0.09, body, -0.16);
-        // torso and head
+        // Torso and head only: the figures are busts, ending just above the
+        // table, so they cast no shadow on the floor to give that away.
         part(new THREE.CapsuleGeometry(0.135, 0.3, 6, 18), 0, 1.06, 0);
         part(new THREE.SphereGeometry(0.115, 24, 18), 0, 1.44, 0.01, skin);
 
@@ -227,7 +224,6 @@
         free.position.set(-hand * 0.32, 1.03, -0.05);
         free.rotation.z = -hand * 0.78;
         free.rotation.x = -0.2;
-        free.castShadow = true;
         g.add(free);
 
         // playing arm, pivoting at the shoulder so it can swing through
@@ -238,30 +234,30 @@
         arm.rotation.z = -hand * 0.4;
         var upper = new THREE.Mesh(new THREE.CapsuleGeometry(0.052, 0.4, 6, 12), body);
         upper.position.y = -0.23;
-        upper.castShadow = true;
         arm.add(upper);
 
         // the bat is turned so its face is angled towards the viewer rather
         // than edge-on, the way a player actually holds it
+        /* Held the way a bat is actually held: the grip nearest the hand, the
+           blade beyond it, so the ball meets the face and not the handle. */
         var bat = new THREE.Group();
-        bat.position.y = -0.47;
+        bat.position.y = -0.44;
         bat.rotation.y = hand * 0.95;
-        var handle = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.021, 0.1, 10), mat(0x9a6a45, 0.85));
-        handle.position.y = -0.02;
-        handle.castShadow = true;
+        var handle = new THREE.Mesh(new THREE.CylinderGeometry(0.021, 0.018, 0.1, 10), mat(0x9a6a45, 0.85));
+        handle.position.y = -0.05;
         bat.add(handle);
-        var blade = new THREE.Mesh(new THREE.CylinderGeometry(0.082, 0.082, 0.013, 30), mat(CORAL, 0.85));
-        blade.position.y = 0.09;
+        var blade = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.013, 30), mat(CORAL, 0.85));
+        blade.position.y = -0.16;
         blade.rotation.x = Math.PI / 2;
-        blade.castShadow = true;
         bat.add(blade);
-        var rim = new THREE.Mesh(new THREE.TorusGeometry(0.082, 0.009, 8, 30), mat(NAVY, 0.6));
-        rim.position.y = 0.09;
+        var rim = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.008, 8, 30), mat(NAVY, 0.6));
+        rim.position.y = -0.16;
         bat.add(rim);
         arm.add(bat);
         g.add(arm);
 
         g.userData.arm = arm;
+        g.userData.blade = blade;
         return g;
       }
 
@@ -288,8 +284,25 @@
       /* --- the rally -------------------------------------------------
          One crossing = hit, bounce on the far half, then the far bat.
          Two parabolas, so it reads as a real exchange rather than a
-         ball floating along an arc. ---------------------------------- */
-      var HIT_X = TL / 2 + 0.22, HIT_Y = 0.95;
+         ball floating along an arc.
+
+         The contact point is measured from the bat rather than guessed:
+         pose both arms at the strike angle, then read where the blade
+         actually is. That way the ball always meets the face, whatever
+         the arm geometry. ------------------------------------------- */
+      var CONTACT = -1.0;   // arm angle at the moment of the strike
+      var READY = -0.15;    // arm drawn back, waiting
+
+      pLeft.userData.arm.rotation.x = CONTACT;
+      pRight.userData.arm.rotation.x = CONTACT;
+      scene.updateMatrixWorld(true);
+      var hitL = new THREE.Vector3(), hitR = new THREE.Vector3();
+      pLeft.userData.blade.getWorldPosition(hitL);
+      pRight.userData.blade.getWorldPosition(hitR);
+
+      var HIT_X = (Math.abs(hitL.x) + Math.abs(hitR.x)) / 2;
+      var HIT_Y = (hitL.y + hitR.y) / 2;
+      var HIT_Z = (hitL.z + hitR.z) / 2;
       var BOUNCE_Y = TH + 0.02;
       var CROSS = 1.5; // seconds per crossing
 
@@ -316,8 +329,8 @@
          empty canvas wherever the hero begins below the fold. */
       function placeCamera(t) {
         var a = Math.sin(t * 0.13) * 0.26;
-        camera.position.set(Math.sin(a) * 8.7, 2.6 + Math.sin(t * 0.19) * 0.14, Math.cos(a) * 8.7);
-        camera.lookAt(0, 0.9, 0);
+        camera.position.set(Math.sin(a) * 8.5, 2.05 + Math.sin(t * 0.19) * 0.12, Math.cos(a) * 8.5);
+        camera.lookAt(0, 1.0, 0);
       }
 
       var clock = new THREE.Clock();
@@ -347,16 +360,28 @@
         var dir = crossing % 2 === 0 ? 1 : -1;
 
         var p = ballAt(phase, dir);
-        ball.position.set(p[0], p[1], Math.sin(elapsed * 0.7) * 0.16);
+        // stays on the line between the two bats, dipping towards the table
+        ball.position.set(p[0], p[1], HIT_Z * (1 - 0.55 * Math.sin(phase * Math.PI)));
 
         // the striker swings through at the start of their crossing,
         // the receiver draws back ready for the next one
         var striker = dir === 1 ? pLeft : pRight;
         var receiver = dir === 1 ? pRight : pLeft;
-        // striker swings through; receiver draws back ready for the return
-        striker.userData.arm.rotation.x = 0.3 - Math.min(phase / 0.2, 1) * 1.45;
-        receiver.userData.arm.rotation.x = -1.15 + Math.min(phase, 1) * 1.45;
-        striker.position.y = Math.max(0, Math.sin(phase * Math.PI) * 0.02);
+        /* The striker is at the contact angle at phase 0, when the ball
+           leaves the bat, follows through, then recovers. The receiver
+           travels back to the contact angle so the bat is there as the
+           ball arrives at phase 1. */
+        if (phase < 0.22) {
+          striker.userData.arm.rotation.x = CONTACT - (phase / 0.22) * 0.5;
+        } else {
+          var back = (phase - 0.22) / 0.78;
+          striker.userData.arm.rotation.x = (CONTACT - 0.5) + back * (READY - CONTACT + 0.5);
+        }
+        var ease = phase * phase * (3 - 2 * phase);
+        receiver.userData.arm.rotation.x = READY + ease * (CONTACT - READY);
+
+        // a small weight shift, since there are no legs to carry it
+        striker.position.y = Math.sin(phase * Math.PI) * 0.015;
         receiver.position.y = 0;
 
         placeCamera(elapsed);
