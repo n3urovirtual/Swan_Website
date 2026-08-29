@@ -809,10 +809,26 @@ p:last-child {
 }
 
 @media (min-width: 901px) {
+  /* Let the nav take the room between the logo and the right edge and space
+     the links out across it, rather than bunching them in the corner. */
   .nav__panel {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex: 1;
     gap: clamp(0.75rem, 2vw, 2rem);
+  }
+
+  .nav__menu {
+    flex: 1;
+    justify-content: space-between;
+    max-width: 41rem;
+  }
+
+  /* Keeps clear air between the logo and the first link at narrow desktop
+     widths, where the menu would otherwise run right up to the mark. */
+  .nav {
+    gap: clamp(2rem, 5vw, 5rem);
   }
 }
 
@@ -1351,6 +1367,7 @@ p:last-child {
   grid-row: 1;
   font-family: var(--font-mono);
   font-size: 0.76rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-soft);
