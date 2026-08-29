@@ -1009,7 +1009,15 @@ a.lang__item:hover {
   font-style: normal;
   color: var(--blue-700);
   position: relative;
-  white-space: nowrap;
+}
+
+/* Kept on one line only where there is room for it. Below this the phrase
+   is wider than the screen, and refusing to wrap pushed the whole hero
+   column off the right edge. */
+@media (min-width: 901px) {
+  .hero__title em {
+    white-space: nowrap;
+  }
 }
 
 /* Same highlight on a page hero heading, but allowed to wrap: the phrases
@@ -1521,7 +1529,7 @@ a.lang__item:hover {
   top: -1.1rem;
   right: 1rem;
   font-family: var(--font-display);
-  font-size: 7rem;
+  font-size: clamp(4.75rem, 3.4rem + 4vw, 7rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.05em;
@@ -1542,7 +1550,7 @@ a.lang__item:hover {
   position: relative;
   font-size: var(--step-1);
   /* margin, not padding, so the rule stops short of the numeral too */
-  margin: 0 3.6rem 0 0;
+  margin: 0 clamp(2.5rem, 1.7rem + 2.6vw, 3.6rem) 0 0;
   padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--sky-200);
 }
