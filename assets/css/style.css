@@ -281,6 +281,30 @@ p:last-child {
   max-width: 46rem;
 }
 
+/* Body copy set in two columns where the container is wide enough. A single
+   column would either stop at a 46rem measure and leave the right-hand half
+   of the section empty, or run the full width at about 110 characters a
+   line, which is past the point where the eye loses its place. Two columns
+   fill the width at roughly 68 characters each. */
+.about-copy > p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 901px) {
+  .about-copy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 1rem + 3vw, 3.5rem);
+    align-items: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-copy > p + p {
+    margin-top: 1.1em;
+  }
+}
+
 .section {
   padding-block: var(--space-2xl);
   position: relative;
