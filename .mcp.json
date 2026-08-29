@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "magic-ui": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@magicuidesign/mcp@latest"
+      ],
+      "env": {}
+    },
+    "react-bits": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "reactbits-dev-mcp-server"
+      ],
+      "env": {}
+    }
+  }
+}
