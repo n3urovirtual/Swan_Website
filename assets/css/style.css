@@ -1764,10 +1764,12 @@ a.lang__item:hover {
 /* --------------------------------------------------------------------------
    13. Resources — work packages
    -------------------------------------------------------------------------- */
+/* Generous air on either side of the dividing rule, so each work package
+   reads as its own block rather than as a continuation of the one above. */
 .wp {
   border-top: 1px solid var(--rule);
-  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
-  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  padding-top: clamp(3rem, 2rem + 3.5vw, 5rem);
+  margin-top: clamp(3.5rem, 2.25rem + 4.5vw, 6rem);
 }
 
 .wp:first-of-type {
