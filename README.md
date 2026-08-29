@@ -50,17 +50,16 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   and text with your real updates before the site goes live.
 - **Partner websites** — the "Visit website" link on each of the seven partner
   cards in `partners.html`.
-- **Partner logos** — `assets/img/partners/` holds a placeholder for each
-  partner (`ittff.svg`, `ul.svg`, `ktg.svg`, `paska.svg`, `fcab.svg`,
-  `fftt.svg`, `al.svg`). Overwrite any of them with the real logo, keeping the
-  filename, and both the strip and the card update. No HTML edit needed.
-- **The SWAN logo** — `assets/img/swan-logo.svg` is a plain typographic
-  **placeholder**, not the real mark. Drop the official logo in at that exact
-  path (keep the filename) and the header and footer both pick it up. It is
-  sized by height with `width: auto`, so any aspect ratio works — but update the
-  `width`/`height` attributes on the two `<img>` tags per page to match your
-  file, so the browser reserves the right space while loading.
-  `assets/img/swan-mark.svg` is the square favicon; replace it the same way.
+- **Partner logos** — `assets/img/partners/` holds a **PNG placeholder** for
+  each partner (`ittff.png`, `ul.png`, `ktg.png`, `paska.png`, `fcab.png`,
+  `fftt.png`, `al.png`). Overwrite any of them with the real logo, keeping the
+  filename, and both the strip and the card update. No HTML edit needed. Use a
+  transparent PNG and trim the empty margin around the artwork — the card sizes
+  the file by height, so built-in padding shrinks the visible logo.
+- **The SWAN logo** — done: `assets/img/swan-logo.png` is the official mark
+  (787×289, transparent, trimmed to the artwork).
+  `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;
+  replace it the same way.
 - **The EU emblem** — done: `assets/img/eu-funded.png` is the official artwork.
 
 ## Adding a news entry
@@ -85,21 +84,26 @@ your file over the existing one and keep the filename** — no code change:
 
 | File | Where it shows |
 | --- | --- |
-| `assets/img/swan-logo.svg` | Header and footer, all pages |
+| `assets/img/swan-logo.png` | Header and footer, all pages |
 | `assets/img/swan-mark.svg` | Browser tab icon |
 | `assets/img/eu-funded.png` | Footer notice + The Project funding block |
-| `assets/img/partners/<abbr>.svg` | Partner strip and card |
+| `assets/img/partners/<abbr>.png` | Partner strip and card |
 
 On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
 **Add file → Upload files** and upload yours with the same name. Or upload
 straight into the folder — GitHub overwrites a file of the same name.
 
-**If your file is a PNG or JPG instead of SVG**, upload it as e.g.
-`swan-logo.png` and change the `src` in the HTML — the extension is part of the
-path, so a different one means the old `src` no longer points at anything. For the SWAN logo that is two
-lines per page (header and footer), so a find-and-replace of
-`assets/img/swan-logo.svg` → `assets/img/swan-logo.png` across the five HTML
-files does it. Partner logos are two lines each, both in `partners.html`.
+**If your file has a different extension** (a `.jpg`, or an `.svg` where the
+site now expects a `.png`), the `src` in the HTML has to change too — the
+extension is part of the path, so a different one means the old `src` no longer
+points at anything. For the SWAN logo that is two lines per page (header and
+footer), so a find-and-replace of `assets/img/swan-logo.png` →
+`assets/img/swan-logo.<ext>` across the five HTML files does it. Partner logos
+are two lines each, both in `partners.html`.
+
+**Transparent PNGs: trim the margin.** Logos are sized by *height*, so any
+transparent padding baked into the file counts as part of that height and the
+visible mark comes out small. Crop the file to the artwork before uploading.
 
 Sizing takes care of itself: logos are sized by height with `width: auto`, so
 any aspect ratio works. Update the `width`/`height` attributes on the `<img>`
@@ -190,7 +194,7 @@ branch root. No build command.
 
 The EU emblem and the funding disclaimer in the footer are contractual
 obligations under the grant agreement — please keep them on every page. The
-emblem in `assets/img/eu-funded.svg` is a rebuilt SVG; if you need the official
-artwork, download it from the European Commission's
+emblem in `assets/img/eu-funded.png` is the official artwork; if you ever need
+to replace it, download it from the European Commission's
 [co-funding logo page](https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en)
 and replace that file.
