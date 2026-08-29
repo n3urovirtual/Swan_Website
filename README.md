@@ -70,11 +70,11 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   (787×289, transparent, trimmed to the artwork).
   `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;
   replace it the same way.
-- **The swan photograph** — `assets/img/swan-photo.png` is a **placeholder**
-  drawing beside the pull quote on The Project page. Replace it with a real
-  swan photograph, keeping the filename; any aspect ratio works, as it is
-  cropped to a square from its centre. Aim for at least 600px on the short
-  side.
+- **The swan artwork** — done: `assets/img/swan-photo.png` is the project's
+  own illustration, shown beside the pull quote on The Project page. To swap
+  it, keep the filename and update the `width`/`height` on its `<img>` in
+  `project.html`. It is displayed whole rather than cropped, and sits on the
+  quote's background with no panel behind it, so transparency is preferred.
 - **The EU emblem** — done: `assets/img/eu-funded.png` is the official artwork.
 
 ## Adding a news entry

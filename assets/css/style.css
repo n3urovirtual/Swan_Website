@@ -1316,15 +1316,15 @@ p:last-child {
 }
 
 .pullquote__mark {
-  width: clamp(6rem, 4.5rem + 4vw, 8.5rem);
+  width: clamp(7rem, 5rem + 6vw, 11rem);
   aspect-ratio: 1;
   height: auto;
   flex: none;
   grid-column: 1;
   grid-row: 2;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  background: var(--sky-100);
+  /* contain, and no tile behind it: the artwork is transparent, so a filled
+     panel would show as a square against the quote's own background. */
+  object-fit: contain;
 }
 
 .pullquote blockquote {
