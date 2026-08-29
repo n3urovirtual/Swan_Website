@@ -2585,14 +2585,20 @@ a.lang__item:hover {
   max-width: 38rem;
 }
 
-.funding__code {
+/* The grant code reads as an identifier, so it is set as one: the brand
+   cyan from the logo, on navy. Cyan on white measures 2.6:1, well under the
+   4.5:1 needed at this size; on navy it is 6.6:1. */
+/* Scoped to beat `.funding__text p`, which is otherwise more specific and
+   was quietly overriding the colour below. */
+.funding__text .funding__code {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.86rem;
-  letter-spacing: 0.02em;
-  color: var(--blue-800);
-  background: var(--white);
-  border: 1px solid var(--sky-300);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--cyan-500);
+  background: var(--navy-950);
+  border: 1px solid var(--navy-950);
   border-radius: var(--radius-sm);
   padding: 0.7rem 1.05rem;
   margin-bottom: 1.1rem;
@@ -2782,12 +2788,15 @@ a.lang__item:hover {
   margin: 0;
 }
 
+/* Set like the footer's other mono labels — uppercase, tracked, muted —
+   rather than as a dark line under grey text. */
 .footer__id {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--navy-900);
-  margin: 0.6rem 0 0;
-  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey-600);
+  margin: 0.75rem 0 0;
 }
 
 .footer__bottom {
