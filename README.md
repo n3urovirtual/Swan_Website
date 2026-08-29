@@ -92,6 +92,43 @@ and edit five things:
 The entry works without JavaScript; the script only adds the open/close
 animation.
 
+### Images inside an entry
+
+The expanded part of an entry is ordinary HTML, so it takes images as well as
+text. Drop your photos in `assets/img/news/` and add a figure inside
+`news-item__detail-inner`:
+
+```html
+<figure class="news-item__figure">
+  <img src="assets/img/news/leipzig-2026.jpg"
+       alt="Participants at an adapted table tennis session"
+       width="1600" height="900">
+  <figcaption>Open session at the festival, October 2026.</figcaption>
+</figure>
+```
+
+The `figcaption` is optional. For two or more side by side, wrap the figures:
+
+```html
+<div class="news-item__gallery">
+  <figure class="news-item__figure"> … </figure>
+  <figure class="news-item__figure"> … </figure>
+</div>
+```
+
+They sit side by side on a wide screen and stack on a phone, automatically.
+
+**Always set accurate `width` and `height` attributes.** The open animation
+measures the panel, and an image without declared dimensions contributes no
+height until it has loaded, which makes the panel expand to the wrong size. The
+script waits for images that are still loading, but the attributes are what stop
+the page jumping around in the first place. Use the file's real pixel size — the
+image is scaled to the column width regardless, so those numbers only describe
+the shape.
+
+The first entry in `news.html` carries a worked example using
+`assets/img/news/news-placeholder.png`; delete it or overwrite the file.
+
 ## Replacing a logo
 
 Every logo on the site is a real file with a fixed name. **To swap one, upload

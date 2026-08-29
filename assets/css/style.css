@@ -1772,6 +1772,41 @@ p:last-child {
   padding-left: 1.25rem;
 }
 
+/* Images inside an expanded entry. One <figure class="news-item__figure">
+   per image; wrap two or more in <div class="news-item__gallery"> to set
+   them side by side. Always give each <img> width and height attributes:
+   the open animation measures the panel before the image has loaded. */
+.news-item__figure {
+  margin: 0 0 1.2em;
+}
+
+.news-item__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: var(--sky-100);
+}
+
+.news-item__figure figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--grey-600);
+}
+
+.news-item__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.2em;
+}
+
+.news-item__gallery .news-item__figure {
+  margin-bottom: 0;
+}
+
 .news-item__detail-inner li {
   margin-bottom: 0.4em;
 }

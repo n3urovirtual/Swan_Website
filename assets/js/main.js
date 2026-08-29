@@ -199,6 +199,18 @@
           }, 320);
         } else {
           item.open = true;
+          /* An image that has not finished loading reports no height, which
+             would make the panel animate to the wrong size. Wait for any
+             that are still in flight before measuring. */
+          var pending = [].slice
+            .call(detail.querySelectorAll("img"))
+            .filter(function (img) { return !img.complete; });
+          if (pending.length) {
+            pending.forEach(function (img) {
+              img.addEventListener("load", remeasure);
+              img.addEventListener("error", remeasure);
+            });
+          }
           var target = detail.scrollHeight;
           detail.style.overflow = "hidden";
           detail.style.height = "0px";
@@ -214,6 +226,11 @@
             detail.style.removeProperty("transition");
             detail.style.removeProperty("opacity");
           }, 380);
+        }
+
+        function remeasure() {
+          if (!item.open || !detail.style.height) return;
+          detail.style.height = detail.scrollHeight + "px";
         }
       });
     });
