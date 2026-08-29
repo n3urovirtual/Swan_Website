@@ -61,9 +61,7 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   `width`/`height` attributes on the two `<img>` tags per page to match your
   file, so the browser reserves the right space while loading.
   `assets/img/swan-mark.svg` is the square favicon; replace it the same way.
-- **The EU emblem** — `assets/img/eu-funded.svg` is rebuilt to the Commission's
-  proportions and is fine to ship, but if you have the official artwork just
-  overwrite that file.
+- **The EU emblem** — done: `assets/img/eu-funded.png` is the official artwork.
 
 ## Adding a news entry
 
@@ -89,7 +87,7 @@ your file over the existing one and keep the filename** — no code change:
 | --- | --- |
 | `assets/img/swan-logo.svg` | Header and footer, all pages |
 | `assets/img/swan-mark.svg` | Browser tab icon |
-| `assets/img/eu-funded.svg` | Footer funding notice |
+| `assets/img/eu-funded.png` | Footer notice + The Project funding block |
 | `assets/img/partners/<abbr>.svg` | Partner strip and card |
 
 On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
@@ -97,7 +95,8 @@ On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
 straight into the folder — GitHub overwrites a file of the same name.
 
 **If your file is a PNG or JPG instead of SVG**, upload it as e.g.
-`swan-logo.png` and change the `src` in the HTML. For the SWAN logo that is two
+`swan-logo.png` and change the `src` in the HTML — the extension is part of the
+path, so a different one means the old `src` no longer points at anything. For the SWAN logo that is two
 lines per page (header and footer), so a find-and-replace of
 `assets/img/swan-logo.svg` → `assets/img/swan-logo.png` across the five HTML
 files does it. Partner logos are two lines each, both in `partners.html`.
