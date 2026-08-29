@@ -60,8 +60,10 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   image near the top of the Partners page showing all seven logos together.
   Replace it with your own, keep the filename, and update the `width`/`height`
   attributes on its `<img>` in `partners.html` to your file's real pixel size.
-  A wide, short image works best (the placeholder is 2800×400); it is capped at
-  62rem and scales down on narrow screens, so avoid very small type in it.
+  A wide, short shape works best. **Export it at roughly 2400px wide**: the
+  banner displays up to 992px, and on a high-density screen that is drawn at
+  about 2000 device pixels, so a smaller file is upscaled and looks soft. The
+  file currently in the repo is only 418px wide and is being stretched.
 - **The SWAN logo** — done: `assets/img/swan-logo.png` is the official mark
   (787×289, transparent, trimmed to the artwork).
   `assets/img/swan-mark.svg` is the square favicon and is still a placeholder;

@@ -1069,6 +1069,37 @@ p:last-child {
   box-shadow: var(--shadow-md);
 }
 
+/* Icon tile above a card heading */
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--sky-100);
+  color: var(--blue-700);
+  transition: background-color 0.3s var(--ease);
+}
+
+.card__icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.card__icon-accent {
+  stroke: var(--coral-500);
+}
+
+.card:hover .card__icon {
+  background: var(--sky-200);
+}
+
 .card h3 {
   font-size: var(--step-1);
 }
