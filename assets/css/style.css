@@ -549,14 +549,14 @@ p:last-child {
 }
 
 .brand__logo {
-  height: 3.25rem;
+  height: 2.9rem;
   width: auto;
   flex: none;
 }
 
 @media (max-width: 520px) {
   .brand__logo {
-    height: 2.25rem;
+    height: 2.4rem;
   }
 }
 
@@ -1922,51 +1922,40 @@ p:last-child {
   color: var(--grey-400);
 }
 
-/* Consortium map — pins sit at true relative geographic positions */
+/* Consortium map — Natural Earth geometry, partner countries filled */
 .cmap {
   position: relative;
-  background: linear-gradient(160deg, var(--sky-100) 0%, var(--white) 100%);
+  background: var(--sky-50);
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
-  padding: clamp(1rem, 0.5rem + 2vw, 2rem);
+  padding: clamp(0.75rem, 0.5rem + 1.5vw, 1.5rem);
 }
 
 .cmap__svg {
   width: 100%;
   height: auto;
   display: block;
-  overflow: visible;
 }
 
-.cmap__link {
-  fill: none;
-  stroke: var(--blue-300);
-  stroke-width: 1.5;
-  stroke-dasharray: 2 9;
-  stroke-linecap: round;
-  opacity: 0.75;
+.cmap__land path {
+  fill: var(--sky-200);
+  stroke: var(--sky-50);
+  stroke-width: 1;
+}
+
+.cmap__country {
+  fill: var(--blue-700);
+  stroke: var(--white);
+  stroke-width: 1.2;
+  transition: fill 0.25s var(--ease);
+}
+
+.cmap__country.is-active {
+  fill: var(--cyan-500);
 }
 
 .cmap__pin {
   cursor: pointer;
-}
-
-.cmap__dot {
-  fill: var(--white);
-  stroke: var(--blue-700);
-  stroke-width: 3;
-  transition: fill 0.2s var(--ease), r 0.2s var(--ease);
-}
-
-.cmap__pin--lead .cmap__dot {
-  fill: var(--coral-500);
-  stroke: var(--coral-600);
-}
-
-.cmap__pin:hover .cmap__dot,
-.cmap__pin:focus-visible .cmap__dot {
-  fill: var(--cyan-500);
-  stroke: var(--blue-800);
 }
 
 .cmap__halo {
@@ -1977,29 +1966,60 @@ p:last-child {
 
 .cmap__pin:hover .cmap__halo,
 .cmap__pin:focus-visible .cmap__halo {
-  opacity: 0.16;
+  opacity: 0.28;
 }
 
-.cmap__label {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  fill: var(--navy-900);
+.cmap__dot {
+  fill: var(--white);
+  stroke: var(--blue-800);
+  stroke-width: 3;
+  transition: fill 0.2s var(--ease);
+}
+
+.cmap__pin--lead .cmap__dot {
+  fill: var(--coral-500);
+  stroke: var(--coral-600);
+}
+
+.cmap__pin:hover .cmap__dot {
+  fill: var(--cyan-500);
+}
+
+/* White casing keeps labels legible over land, sea and filled countries */
+.cmap__abbr,
+.cmap__place {
+  paint-order: stroke fill;
+  stroke: var(--white);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
   pointer-events: none;
 }
 
 .cmap__abbr {
   font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  fill: var(--blue-700);
-  pointer-events: none;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  fill: var(--navy-950);
+}
+
+.cmap__place {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  fill: var(--blue-800);
+}
+
+@media (max-width: 620px) {
+  .cmap__abbr { font-size: 22px; }
+  .cmap__place { font-size: 16px; }
+  .cmap__dot { r: 11; }
 }
 
 .cmap__note {
   margin: 1.25rem 0 0;
   font-size: 0.92rem;
   color: var(--text-soft);
+  max-width: 46rem;
 }
 
 /* Country strip */

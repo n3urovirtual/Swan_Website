@@ -34,7 +34,7 @@ assets/
   js/motion.js      progress bar, parallax, map draw-in, hero depth field
   js/vendor/        GSAP + ScrollTrigger, Three.js (self-hosted)
   fonts/            self-hosted webfonts (+ their OFL licences)
-  img/              SWAN logo, favicon mark, EU funding emblem
+  img/              SWAN logo + favicon (placeholders), EU funding emblem
 ```
 
 ## Before publishing — things to fill in
@@ -55,9 +55,16 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   logos into `assets/img/partners/` and swap the marked block for the `<img>`
   tag shown in the comment beside it. This applies twice per partner: the logo
   strip at the top of the page and the card lower down.
-- **The SWAN logo** — `assets/img/swan-logo.svg` is a rebuilt approximation of
-  the official mark. Replace that one file with the official artwork and the
-  header, footer and favicon all pick it up.
+- **The SWAN logo** — `assets/img/swan-logo.svg` is a plain typographic
+  **placeholder**, not the real mark. Drop the official logo in at that exact
+  path (keep the filename) and the header and footer both pick it up. It is
+  sized by height with `width: auto`, so any aspect ratio works — but update the
+  `width`/`height` attributes on the two `<img>` tags per page to match your
+  file, so the browser reserves the right space while loading.
+  `assets/img/swan-mark.svg` is the square favicon; replace it the same way.
+- **The EU emblem** — `assets/img/eu-funded.svg` is rebuilt to the Commission's
+  proportions and is fine to ship, but if you have the official artwork just
+  overwrite that file.
 
 ## Adding a news entry
 
@@ -97,6 +104,13 @@ and the current-page marker. All defined as custom properties at the top of
 
 **Typefaces** are Bricolage Grotesque (headings), Instrument Sans (body) and
 DM Mono (dates, deliverable codes, labels).
+
+**The consortium map** on the Partners page is real geometry, not an
+illustration: country outlines come from Natural Earth 1:50m (public domain),
+projected equirectangularly at a 48°N standard parallel. Hovering or focusing a
+pin lights up that country; selecting one jumps to its card. To change a pin,
+edit its `cx`/`cy` — or regenerate the whole block, since it was produced from
+the source data rather than drawn by hand.
 
 **The recurring arc** — a dotted curve with a ball on it — is the same shape read
 three ways: a table tennis rally, a neural connection forming, and the curve of a

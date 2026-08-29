@@ -220,6 +220,28 @@
   }
 
   /* ------------------------------------------------------------------
+     Consortium map: hovering a pin lights up its country
+     ------------------------------------------------------------------ */
+  function initMap() {
+    var pins = document.querySelectorAll(".cmap__pin");
+    if (!pins.length) return;
+
+    pins.forEach(function (pin) {
+      var slug = (pin.getAttribute("href") || "").replace("#p-", "");
+      var country = document.querySelector('.cmap__country[data-for="' + slug + '"]');
+      if (!country) return;
+
+      function on() { country.classList.add("is-active"); }
+      function off() { country.classList.remove("is-active"); }
+
+      pin.addEventListener("mouseenter", on);
+      pin.addEventListener("mouseleave", off);
+      pin.addEventListener("focus", on);
+      pin.addEventListener("blur", off);
+    });
+  }
+
+  /* ------------------------------------------------------------------
      Current year in the footer
      ------------------------------------------------------------------ */
   function initYear() {
@@ -236,6 +258,7 @@
     initReveal();
     initCounters();
     initNewsAccordion();
+    initMap();
     initYear();
   }
 

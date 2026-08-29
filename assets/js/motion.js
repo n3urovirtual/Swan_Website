@@ -45,18 +45,23 @@
       });
     });
 
-    /* Consortium map: the connector lines draw themselves as it scrolls in */
-    var links = gsap.utils.toArray(".cmap__link");
-    if (links.length) {
-      links.forEach(function (path) {
-        var len = path.getTotalLength();
-        gsap.set(path, { strokeDasharray: len, strokeDashoffset: len, opacity: 1 });
-        gsap.to(path, {
-          strokeDashoffset: 0,
-          duration: 1.1,
-          ease: "power2.out",
-          scrollTrigger: { trigger: ".cmap", start: "top 78%", once: true }
-        });
+    /* Consortium map: countries wash in, then the pins drop */
+    if (document.querySelector(".cmap")) {
+      gsap.from(".cmap__country", {
+        opacity: 0,
+        duration: 0.6,
+        ease: "power1.out",
+        stagger: 0.06,
+        scrollTrigger: { trigger: ".cmap", start: "top 78%", once: true }
+      });
+      gsap.from(".cmap__pin", {
+        opacity: 0,
+        y: -14,
+        duration: 0.5,
+        ease: "back.out(2)",
+        stagger: 0.07,
+        delay: 0.35,
+        scrollTrigger: { trigger: ".cmap", start: "top 78%", once: true }
       });
     }
 
