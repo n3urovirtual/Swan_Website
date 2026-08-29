@@ -869,6 +869,13 @@ p:last-child {
   white-space: nowrap;
 }
 
+/* Same highlight on a page hero heading, but allowed to wrap: the phrases
+   there are longer than the one on the home page. */
+.page-hero h1 em {
+  font-style: normal;
+  color: var(--blue-700);
+}
+
 .hero__lede {
   font-size: var(--step-1);
   line-height: 1.55;
