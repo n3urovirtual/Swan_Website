@@ -1063,6 +1063,14 @@ p:last-child {
     border-color 0.3s var(--ease);
 }
 
+/* On a tinted band the default rule is the same value as the ground, so the
+   card reads as a solid tile with no edge. Step the border up one shade to
+   restore the outlined look the cards have on white. */
+.section--sky .card,
+.section--sky .deliverable {
+  border-color: var(--sky-200);
+}
+
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--sky-300);
@@ -1148,8 +1156,7 @@ p:last-child {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 13rem;
+  min-height: 11rem;
   padding: clamp(1.4rem, 1rem + 1.4vw, 1.9rem);
   background: var(--blue-700);
   color: var(--white);
@@ -1187,7 +1194,7 @@ p:last-child {
   width: 2.25rem;
   height: 2.25rem;
   color: var(--sky-200);
-  margin-bottom: auto;
+  margin-bottom: 0.9rem;
 }
 
 .waycard__icon svg {
@@ -1205,7 +1212,7 @@ p:last-child {
   font-size: var(--step-1);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-top: 1.5rem;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
