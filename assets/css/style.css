@@ -1080,27 +1080,92 @@ a.lang__item:hover {
   stroke-width: 3;
   stroke-linecap: round;
   stroke-dasharray: 0.5 12;
-  opacity: 0.9;
+  opacity: 0.65;
 }
 
-.rally__arc--faint {
-  stroke: var(--blue-300);
-  stroke-width: 2.5;
-  opacity: 0.5;
-}
-
-.rally__node {
-  fill: var(--white);
-  stroke: var(--blue-700);
-  stroke-width: 2;
-}
-
-.rally__node-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
+/* The table, seen from the side */
+.rally__top {
   fill: var(--blue-700);
-  text-transform: uppercase;
+}
+
+.rally__leg,
+.rally__net-rail {
+  fill: none;
+  stroke: var(--blue-700);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.rally__net {
+  fill: var(--sky-300);
+}
+
+/* The two players */
+.rally__head {
+  fill: none;
+  stroke: var(--blue-700);
+  stroke-width: 5;
+}
+
+.rally__limb {
+  fill: none;
+  stroke: var(--blue-700);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rally__bat-grip,
+.rally__bat-blade {
+  fill: var(--blue-700);
+}
+
+.rally__bat-face {
+  fill: var(--coral-500);
+}
+
+/* Bats rock in time with the ball, each meeting it as it arrives. */
+.rally__bat {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: rally-swing 5.5s var(--ease) infinite;
+}
+
+.rally__bat--left {
+  animation-name: rally-swing-left;
+}
+
+.rally__bat--right {
+  animation-name: rally-swing-right;
+}
+
+@keyframes rally-swing-left {
+  0%,
+  8% {
+    transform: rotate(-42deg);
+  }
+  20%,
+  88% {
+    transform: rotate(-14deg);
+  }
+  100% {
+    transform: rotate(-42deg);
+  }
+}
+
+@keyframes rally-swing-right {
+  0%,
+  38% {
+    transform: rotate(14deg);
+  }
+  50%,
+  58% {
+    transform: rotate(42deg);
+  }
+  70%,
+  100% {
+    transform: rotate(14deg);
+  }
 }
 
 .rally__ball {
@@ -1108,17 +1173,9 @@ a.lang__item:hover {
   filter: drop-shadow(0 3px 6px rgba(184, 84, 58, 0.45));
 }
 
-.rally__paddle {
-  fill: var(--blue-700);
-}
-
-.rally__paddle-face {
-  fill: var(--coral-500);
-}
-
 /* Ball travels the arc — same path as .rally__arc */
 .rally__ball-group {
-  offset-path: path("M 90 262 Q 200 70 310 262");
+  offset-path: path("M 128 210 Q 200 132 272 210");
   offset-rotate: 0deg;
   offset-distance: 0%;
   animation: rally-travel 5.5s var(--ease) infinite;
@@ -1126,14 +1183,14 @@ a.lang__item:hover {
 
 @keyframes rally-travel {
   0%,
-  4% {
+  6% {
     offset-distance: 0%;
   }
-  46%,
-  54% {
+  48%,
+  56% {
     offset-distance: 100%;
   }
-  96%,
+  98%,
   100% {
     offset-distance: 0%;
   }
@@ -2206,6 +2263,20 @@ a.lang__item:hover {
 }
 
 /* White casing keeps labels legible over land, sea and filled countries */
+/* An invisible, finger-sized hit area per pin. The drawn halo is only about
+   20px across on a phone, which is well under a comfortable tap target. */
+.cmap__hit {
+  r: 26px;
+  fill: transparent;
+  pointer-events: fill;
+}
+
+@media (max-width: 900px) {
+  .cmap__hit {
+    r: 62px;
+  }
+}
+
 .cmap__abbr,
 .cmap__place {
   paint-order: stroke fill;

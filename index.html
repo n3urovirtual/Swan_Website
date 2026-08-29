@@ -211,26 +211,59 @@
       <div class="hero__art reveal">
         <div class="rally">
           <svg class="rally__svg" viewBox="0 0 400 400" role="img" aria-labelledby="rally-title">
-            <title id="rally-title">A table tennis ball travelling along a dotted arc between two paddles</title>
+            <title id="rally-title">Two people rallying across a table tennis table</title>
+
             <circle class="rally__court" cx="200" cy="200" r="178"/>
             <circle class="rally__ring" cx="200" cy="200" r="178"/>
             <circle class="rally__ring" cx="200" cy="200" r="128"/>
-            <path class="rally__arc" d="M 90 262 Q 200 70 310 262"/>
 
-            <g transform="translate(90 262) rotate(-20)">
-              <rect class="rally__paddle" x="-6" y="14" width="12" height="34" rx="6"/>
-              <ellipse class="rally__paddle" cx="0" cy="-10" rx="30" ry="32"/>
-              <ellipse class="rally__paddle-face" cx="0" cy="-10" rx="25" ry="27"/>
+            <!-- the arc the ball follows, drawn as a dotted trace -->
+            <path class="rally__arc" d="M 128 210 Q 200 132 272 210"/>
+
+            <!-- table, seen from the side -->
+            <g class="rally__table">
+              <path class="rally__leg" d="M132 246v58M268 246v58"/>
+              <rect class="rally__top" x="118" y="238" width="164" height="8" rx="4"/>
+              <rect class="rally__net" x="197" y="208" width="6" height="30" rx="2"/>
+              <path class="rally__net-rail" d="M192 208h16"/>
             </g>
 
-            <g transform="translate(310 262) rotate(20)">
-              <rect class="rally__paddle" x="-6" y="14" width="12" height="34" rx="6"/>
-              <ellipse class="rally__paddle" cx="0" cy="-10" rx="30" ry="32"/>
-              <ellipse class="rally__paddle-face" cx="0" cy="-10" rx="25" ry="27"/>
+            <!-- left player -->
+            <g class="rally__player">
+              <circle class="rally__head" cx="70" cy="152" r="13"/>
+              <path class="rally__limb" d="M70 166 76 212"/>
+              <path class="rally__limb" d="M76 212 63 258 57 304"/>
+              <path class="rally__limb" d="M76 212 95 254 101 304"/>
+              <path class="rally__limb" d="M74 178 55 204"/>
+              <path class="rally__limb" d="M75 176 103 209"/>
+              <g transform="translate(112 214)">
+                <g class="rally__bat rally__bat--left">
+                  <rect class="rally__bat-grip" x="-3.5" y="6" width="7" height="15" rx="3.5"/>
+                  <ellipse class="rally__bat-blade" cx="0" cy="-5" rx="14" ry="15.5"/>
+                  <ellipse class="rally__bat-face" cx="0" cy="-5" rx="8" ry="9"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- right player -->
+            <g class="rally__player">
+              <circle class="rally__head" cx="330" cy="152" r="13"/>
+              <path class="rally__limb" d="M330 166 324 212"/>
+              <path class="rally__limb" d="M324 212 337 258 343 304"/>
+              <path class="rally__limb" d="M324 212 305 254 299 304"/>
+              <path class="rally__limb" d="M326 178 345 204"/>
+              <path class="rally__limb" d="M325 176 297 209"/>
+              <g transform="translate(288 214)">
+                <g class="rally__bat rally__bat--right">
+                  <rect class="rally__bat-grip" x="-3.5" y="6" width="7" height="15" rx="3.5"/>
+                  <ellipse class="rally__bat-blade" cx="0" cy="-5" rx="14" ry="15.5"/>
+                  <ellipse class="rally__bat-face" cx="0" cy="-5" rx="8" ry="9"/>
+                </g>
+              </g>
             </g>
 
             <g class="rally__ball-group">
-              <circle class="rally__ball" r="12"/>
+              <circle class="rally__ball" r="8"/>
             </g>
           </svg>
           <p class="rally__caption">A rally is a connection forming</p>
