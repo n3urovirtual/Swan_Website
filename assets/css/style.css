@@ -2682,11 +2682,11 @@ a.lang__item:hover {
 .footer__heading {
   font-family: var(--font-mono);
   font-size: 0.74rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--grey-600);
   margin: 0 0 0.9rem;
-  font-weight: 500;
 }
 
 .footer__list {
