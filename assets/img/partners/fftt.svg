@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 84" role="img" aria-label="French Table Tennis Federation">
+  <!-- PLACEHOLDER. Replace this file with the partner's real logo,
+       keeping the filename fftt.svg (or upload fftt.png and change the
+       two <img src> lines for this partner in partners.html). -->
+  <rect width="134" height="84" rx="10" fill="#E4EFF7"/>
+  <g fill="#12409B" transform="translate(16.00 57)"><path transform="translate(0.00 0) scale(0.04400 -0.04400)" d="M73 0V660H217V0ZM142 247V365H527V247ZM142 537V660H564V537Z"/><path transform="translate(26.09 0) scale(0.04400 -0.04400)" d="M73 0V660H217V0ZM142 247V365H527V247ZM142 537V660H564V537Z"/><path transform="translate(52.18 0) scale(0.04400 -0.04400)" d="M213 0V660H357V0ZM18 539V660H552V539Z"/><path transform="translate(77.31 0) scale(0.04400 -0.04400)" d="M213 0V660H357V0ZM18 539V660H552V539Z"/></g>
+</svg>

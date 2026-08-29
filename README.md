@@ -42,7 +42,6 @@ assets/
 Every one of these is marked with a `TODO` comment in the HTML, so
 `grep -rn "TODO" *.html` will list them.
 
-- **Social links** — LinkedIn and Facebook URLs (header and footer, all 5 pages).
 - **Contact address** — footer "Contact the consortium" link and the Partners CTA.
 - **Deliverable links** — `resources.html`, the three "View report" buttons for
   D2.1.1, D2.1.2 and D2.1.3.
@@ -51,10 +50,10 @@ Every one of these is marked with a `TODO` comment in the HTML, so
   and text with your real updates before the site goes live.
 - **Partner websites** — the "Visit website" link on each of the seven partner
   cards in `partners.html`.
-- **Partner logos** — each partner currently shows its abbreviation. Drop real
-  logos into `assets/img/partners/` and swap the marked block for the `<img>`
-  tag shown in the comment beside it. This applies twice per partner: the logo
-  strip at the top of the page and the card lower down.
+- **Partner logos** — `assets/img/partners/` holds a placeholder for each
+  partner (`ittff.svg`, `ul.svg`, `ktg.svg`, `paska.svg`, `fcab.svg`,
+  `fftt.svg`, `al.svg`). Overwrite any of them with the real logo, keeping the
+  filename, and both the strip and the card update. No HTML edit needed.
 - **The SWAN logo** — `assets/img/swan-logo.svg` is a plain typographic
   **placeholder**, not the real mark. Drop the official logo in at that exact
   path (keep the filename) and the header and footer both pick it up. It is
@@ -80,6 +79,33 @@ and edit five things:
 
 The entry works without JavaScript; the script only adds the open/close
 animation.
+
+## Replacing a logo
+
+Every logo on the site is a real file with a fixed name. **To swap one, upload
+your file over the existing one and keep the filename** — no code change:
+
+| File | Where it shows |
+| --- | --- |
+| `assets/img/swan-logo.svg` | Header and footer, all pages |
+| `assets/img/swan-mark.svg` | Browser tab icon |
+| `assets/img/eu-funded.svg` | Footer funding notice |
+| `assets/img/partners/<abbr>.svg` | Partner strip and card |
+
+On GitHub: open the file, click the pencil-and-bin **Delete** icon, commit; then
+**Add file → Upload files** and upload yours with the same name. Or upload
+straight into the folder — GitHub overwrites a file of the same name.
+
+**If your file is a PNG or JPG instead of SVG**, upload it as e.g.
+`swan-logo.png` and change the `src` in the HTML. For the SWAN logo that is two
+lines per page (header and footer), so a find-and-replace of
+`assets/img/swan-logo.svg` → `assets/img/swan-logo.png` across the five HTML
+files does it. Partner logos are two lines each, both in `partners.html`.
+
+Sizing takes care of itself: logos are sized by height with `width: auto`, so
+any aspect ratio works. Update the `width`/`height` attributes on the `<img>`
+tags to your file's real pixel size so the browser reserves the right space
+while loading.
 
 ## Adding photos
 

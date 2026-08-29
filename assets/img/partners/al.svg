@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 84" role="img" aria-label="Alzheimer León">
+  <!-- PLACEHOLDER. Replace this file with the partner's real logo,
+       keeping the filename al.svg (or upload al.png and change the
+       two <img src> lines for this partner in partners.html). -->
+  <rect width="120" height="84" rx="10" fill="#E4EFF7"/>
+  <g fill="#12409B" transform="translate(33.47 57)"><path transform="translate(0.00 0) scale(0.04400 -0.04400)" d="M18 0 244 660H454L680 0H524L357 546H342L174 0ZM145 130V228H574V130Z"/><path transform="translate(30.71 0) scale(0.04400 -0.04400)" d="M73 0V660H217V0ZM103 0V121H496V0Z"/></g>
+</svg>

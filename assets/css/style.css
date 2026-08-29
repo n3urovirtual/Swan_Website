@@ -481,34 +481,6 @@ p:last-child {
 /* --------------------------------------------------------------------------
    6. Header
    -------------------------------------------------------------------------- */
-.topbar {
-  background: var(--navy-950);
-  color: #a9bfdd;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-}
-
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  min-height: 2.5rem;
-  padding-block: 0.4rem;
-}
-
-.topbar__id {
-  color: #7f97ba;
-}
-
-@media (max-width: 720px) {
-  .topbar__id,
-  .topbar__long {
-    display: none;
-  }
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -2390,7 +2362,6 @@ p:last-child {
 
 @media print {
   .site-header,
-  .topbar,
   .nav__toggle,
   .cta-band {
     display: none;
