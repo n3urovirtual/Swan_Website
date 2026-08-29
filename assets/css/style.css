@@ -324,6 +324,22 @@ p:last-child {
   text-align: center;
 }
 
+/* Lets a long heading run the full container width instead of being folded
+   by the 46rem measure, while the supporting paragraph keeps that measure.
+   Below ~700px the heading no longer fits on one line and wraps normally. */
+.section-head--wide {
+  max-width: none;
+}
+
+.section-head--wide > h2 {
+  max-width: none;
+  text-wrap: balance;
+}
+
+.section-head--wide > p:not(.eyebrow) {
+  max-width: 46rem;
+}
+
 .section-head p {
   color: var(--text-soft);
   font-size: var(--step-1);
