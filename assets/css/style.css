@@ -87,6 +87,8 @@
   /* Brand cyan, from the SWAN logo */
   --cyan-500: #22ace3;
   --cyan-600: #1791c3;
+  --cyan-100: #d2ecf8;
+  --cyan-50: #eaf7fc;
 
   /* The one accent: the ball */
   --coral-500: #d2694a;
@@ -2009,7 +2011,9 @@ a.lang__item:hover {
   grid-template-columns: auto minmax(0, 1fr);
   column-gap: 0.7rem;
   row-gap: 0.3rem;
-  align-items: start;
+  /* Centres the mark against a single-line note, and sits it against the
+     first line when there is a body paragraph underneath. */
+  align-items: center;
   max-width: 46rem;
   margin-top: 1.75rem;
   padding: clamp(1rem, 0.8rem + 0.7vw, 1.35rem) clamp(1.1rem, 0.85rem + 0.9vw, 1.5rem);
@@ -2021,11 +2025,21 @@ a.lang__item:hover {
 .note__icon {
   grid-column: 1;
   grid-row: 1;
+  align-self: center;
   display: block;
   width: 1.1rem;
   height: 1.1rem;
-  margin-top: 0.16rem;
   color: var(--cyan-500);
+}
+
+/* Only pull the rows apart when there actually is a second line. */
+.note:has(.note__body) {
+  align-items: start;
+}
+
+.note:has(.note__body) .note__icon {
+  align-self: start;
+  margin-top: 0.16rem;
 }
 
 .note__icon svg {
@@ -2066,22 +2080,49 @@ a.lang__item:hover {
   }
 }
 
+/* A light cyan card with a cyan edge that thickens down the left as the
+   entry opens, so the outline does the work of showing which one you are
+   reading rather than a colour change alone. */
 .news-item {
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
+  position: relative;
+  background: var(--cyan-50);
+  border: 1px solid var(--cyan-100);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    background-color 0.3s var(--ease);
+}
+
+.news-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--cyan-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
 }
 
 .news-item:hover {
-  border-color: var(--sky-300);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--cyan-500);
+  box-shadow: 0 2px 6px rgba(23, 145, 195, 0.08), 0 12px 28px rgba(23, 145, 195, 0.1);
+}
+
+.news-item:hover::before {
+  transform: scaleX(0.5);
 }
 
 .news-item[open] {
-  border-color: var(--blue-500);
-  box-shadow: var(--shadow-md);
+  background: var(--white);
+  border-color: var(--cyan-500);
+  box-shadow: 0 4px 12px rgba(23, 145, 195, 0.1), 0 18px 40px rgba(23, 145, 195, 0.14);
+}
+
+.news-item[open]::before {
+  transform: scaleX(1);
 }
 
 .news-item__summary {

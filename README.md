@@ -107,6 +107,9 @@ anywhere on the site:
 </aside>
 ```
 
+The `note__body` is optional — drop it and the box becomes a single line with
+the mark centred against it.
+
 It is navy with the brand cyan, the same pairing as the grant code on The
 Project page, so that against the site's pale sections an aside reads as an
 aside rather than as more of the page.
