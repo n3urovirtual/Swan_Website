@@ -2000,7 +2000,6 @@ a.lang__item:hover {
 .news-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
 }
 
 /* Info callout. Navy panel with the brand cyan, the same pairing as the
@@ -2080,49 +2079,66 @@ a.lang__item:hover {
   }
 }
 
-/* A light cyan card with a cyan edge that thickens down the left as the
-   entry opens, so the outline does the work of showing which one you are
-   reading rather than a colour change alone. */
+/* Closed entries are rows in a list, divided by a rule and nothing else —
+   five identical filled cards read as one block rather than five items.
+   The entry you open becomes a card and lifts out of the list, which is
+   where the separation is actually needed. */
 .news-item {
   position: relative;
-  background: var(--cyan-50);
-  border: 1px solid var(--cyan-100);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease),
-    background-color 0.3s var(--ease);
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  transition: background-color 0.3s var(--ease), box-shadow 0.35s var(--ease);
 }
 
+.news-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The accent that marks the row you are pointing at, and the one you opened. */
 .news-item::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -1px;
+  bottom: -1px;
   left: 0;
   width: 3px;
   background: var(--cyan-500);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s var(--ease);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s var(--ease);
+  z-index: 1;
 }
 
 .news-item:hover {
-  border-color: var(--cyan-500);
-  box-shadow: 0 2px 6px rgba(23, 145, 195, 0.08), 0 12px 28px rgba(23, 145, 195, 0.1);
+  background: var(--cyan-50);
 }
 
 .news-item:hover::before {
-  transform: scaleX(0.5);
+  transform: scaleY(1);
 }
 
+/* Open: out of the list and onto the page. */
 .news-item[open] {
   background: var(--white);
-  border-color: var(--cyan-500);
-  box-shadow: 0 4px 12px rgba(23, 145, 195, 0.1), 0 18px 40px rgba(23, 145, 195, 0.14);
+  border-top-color: transparent;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 0 1px var(--cyan-500), 0 6px 16px rgba(23, 145, 195, 0.09),
+    0 22px 48px rgba(23, 145, 195, 0.13);
+  margin-block: 1.25rem;
+  overflow: hidden;
 }
 
 .news-item[open]::before {
-  transform: scaleX(1);
+  transform: scaleY(1);
+}
+
+/* A rule between two closed rows is enough; drop the one that would double
+   up against an open card's own edge. */
+.news-item[open] + .news-item,
+.news-item[open]:last-child {
+  border-top-color: transparent;
 }
 
 .news-item__summary {
@@ -2183,18 +2199,13 @@ a.lang__item:hover {
 
 .news-item__title {
   font-size: var(--step-2);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.9rem;
+  max-width: 46rem;
   transition: color 0.2s var(--ease);
 }
 
 .news-item:hover .news-item__title {
   color: var(--blue-700);
-}
-
-.news-item__preview {
-  color: var(--text-soft);
-  margin: 0 0 1.1rem;
-  max-width: 60rem;
 }
 
 .news-item__more {

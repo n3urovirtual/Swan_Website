@@ -81,13 +81,12 @@ Every one of these is marked with a `TODO` comment in the HTML, so
 
 Each entry in `news.html` is a `<details>` element. Copy a whole
 `<details class="news-item"> … </details>` block, put it at the top of the list,
-and edit five things:
+and edit four things:
 
 1. `news-item__type` — Event, Milestone, Publication, Partner meeting…
 2. `news-item__date` — free text, e.g. `2–4 October 2026`
 3. `news-item__title`
-4. `news-item__preview` — the two or three lines shown before expanding
-5. the contents of `news-item__detail-inner` — the full story
+4. the contents of `news-item__detail-inner` — the full story
 
 The entry works without JavaScript; the script only adds the open/close
 animation.
