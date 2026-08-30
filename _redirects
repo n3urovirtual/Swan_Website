@@ -1,0 +1,10 @@
+# Pre-launch holding page.
+#
+# Everything except the asset folder renders maintenance.html, with the URL
+# left as the visitor typed it (200 = rewrite, not redirect). The "!" forces
+# the rule even though index.html and the other pages really exist.
+#
+# TO LAUNCH THE SITE: delete this file. That is the whole switch.
+
+/assets/*   /assets/:splat       200
+/*          /maintenance.html    200!
