@@ -2087,13 +2087,16 @@ a.lang__item:hover {
   position: relative;
   background: transparent;
   border: 0;
-  border-top: 1px solid var(--rule);
+  /* A neutral rule, and a definite one: it is the only thing dividing one
+     entry from the next, so it has to be read at a glance. Deliberately not
+     a blue — the cyan accent stays the only coloured line here. */
+  border-top: 1px solid var(--grey-400);
   border-radius: 0;
   transition: background-color 0.3s var(--ease), box-shadow 0.35s var(--ease);
 }
 
 .news-item:last-child {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--grey-400);
 }
 
 /* The accent that marks the row you are pointing at, and the one you opened. */
