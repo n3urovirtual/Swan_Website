@@ -26,16 +26,34 @@ to be made in all five**.
 
 ## Structure
 
+Everything the public can reach lives in `public/`. Nothing outside it is
+deployed, so notes and tooling can sit in the repo without shipping.
+
 ```
-index.html · project.html · resources.html · news.html · partners.html
-assets/
-  css/style.css     all styling, organised in numbered sections
-  js/main.js        nav, scroll reveal, stat counters, news accordion
-  js/motion.js      progress bar, parallax, map draw-in, hero depth field
-  js/vendor/        GSAP + ScrollTrigger, Three.js (self-hosted)
-  fonts/            self-hosted webfonts (+ their OFL licences)
-  img/              SWAN logo + favicon (placeholders), EU funding emblem
+netlify.toml        sets the publish directory to public/
+README.md           this file — not deployed
+public/
+  index.html · project.html · resources.html · news.html · partners.html
+  maintenance.html  holding page (see "Launching" below)
+  _redirects        the launch switch
+  _headers          security headers, including the CSP
+  assets/
+    css/style.css       all styling, organised in numbered sections
+    css/maintenance.css holding page only
+    js/main.js          nav, scroll reveal, stat counters, news accordion
+    js/motion.js        progress bar, parallax, map draw-in, hero depth field
+    js/maintenance.js   the holding page's table-tennis rally
+    js/vendor/          GSAP + ScrollTrigger, Three.js (self-hosted)
+    fonts/              self-hosted webfonts (+ their OFL licences)
+    img/                SWAN logo + favicon, EU funding emblem
 ```
+
+### No inline styles or scripts
+
+`public/_headers` sets a Content-Security-Policy that forbids both. Put CSS in
+a stylesheet and JS in a file — an inline `<style>`, `<script>`, or `style=""`
+attribute will simply not run in a browser. Loosening the policy is the wrong
+fix; moving the code to a file is the right one.
 
 ## Before publishing — things to fill in
 
@@ -303,8 +321,20 @@ current size and spacing when editing.
 
 ## Deploying
 
-Any static host works. For **GitHub Pages**: Settings → Pages → deploy from the
-branch root. No build command.
+Hosted on Netlify, building from `main`. No build command — `netlify.toml`
+points the publish directory at `public/` and the files are served as they are.
+
+Every push to `main` is a production deploy and costs credits, so batch changes
+and push once. Pull requests get a free preview deploy; so does running
+`python3 -m http.server` inside `public/`.
+
+## Launching
+
+The site is currently behind a holding page. `public/_redirects` rewrites every
+URL except `/assets/*` to `maintenance.html`.
+
+**To launch: delete `public/_redirects`.** That is the whole switch. Afterwards
+`maintenance.html` is harmless to leave in place, ready for the next time.
 
 ## Funding notice
 

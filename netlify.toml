@@ -1,0 +1,5 @@
+# Only public/ is deployed. Everything outside it — README.md, .claude/ and any
+# future tooling — stays out of the published site by construction, rather than
+# by remembering to add an ignore rule for each new thing.
+[build]
+  publish = "public"

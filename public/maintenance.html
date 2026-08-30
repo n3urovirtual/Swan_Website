@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWAN — Under maintenance</title>
+<meta name="description" content="The SWAN project website is temporarily under maintenance. We expect to be back towards the end of September 2026.">
+<!-- The site is behind a catch-all rewrite while it is being finished. Keeping
+     this page out of the index means the real pages get crawled fresh at launch
+     instead of inheriting weeks of "under maintenance" snippets. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/assets/img/swan-mark.svg" type="image/svg+xml">
+
+<link rel="stylesheet" href="/assets/css/maintenance.css">
+</head>
+<body>
+
+<div class="wrap mast">
+  <img src="/assets/img/swan-logo.png" alt="SWAN" width="787" height="289">
+</div>
+
+<main class="wrap notice">
+  <p class="chip">Under maintenance</p>
+  <p class="lede">Dear visitor,</p>
+  <h1 class="title">the SWAN website is <em>under maintenance</em>.</h1>
+  <p class="sub">We expect to be back towards <strong>the end of September&nbsp;2026</strong>. Thank you for your patience.</p>
+</main>
+
+<section class="wrap play" aria-labelledby="play-h">
+  <h2 id="play-h" class="sr-only">While you wait: keep a rally going</h2>
+  <div class="panel">
+    <div class="panel__head">
+      <p class="panel__hint">While you wait — <b>move to return the ball</b> and see how long a rally you can keep.</p>
+      <div class="hud">
+        <div><span>Rally</span><b id="hud-rally">0</b></div>
+        <div class="is-best"><span>Best</span><b id="hud-best">0</b></div>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <p class="stage__fallback">Your browser can’t show the 3&#8209;D table, but the message above still stands — we’ll see you in September.</p>
+      <div class="stage__overlay" id="overlay" hidden>
+        <button class="btn" id="start" type="button">Start the rally</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap foot">
+  <div class="foot__in">
+    <img class="foot__swan" src="/assets/img/swan-logo.png" alt="SWAN" width="787" height="289">
+    <p>Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.</p>
+    <img class="foot__eu" src="/assets/img/eu-funded.png" alt="Co-funded by the European Union" width="270" height="57">
+  </div>
+</footer>
+
+<script type="module" src="/assets/js/maintenance.js"></script>
+</body>
+</html>

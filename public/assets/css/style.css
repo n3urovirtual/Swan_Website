@@ -3050,3 +3050,20 @@ a.lang__item:hover {
     color: #000;
   }
 }
+
+/* --------------------------------------------------------------------------
+   14. Utilities lifted out of style="" attributes
+   These were inline attributes until the site adopted a Content-Security-
+   Policy that forbids inline styles. Same declarations, now in the cascade.
+   -------------------------------------------------------------------------- */
+.hero__actions--cta { margin-top: 1.75rem; }
+
+/* A ghost button sitting on one of the dark bands. */
+.btn--on-dark {
+  --btn-fg: #e4eff7;
+  border-color: rgba(228, 239, 247, .35);
+}
+
+.container--spaced { margin-top: var(--space-xl); }
+
+.footer__legal { margin: 0; }
